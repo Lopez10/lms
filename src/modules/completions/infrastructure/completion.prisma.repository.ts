@@ -3,8 +3,13 @@ import { Completion } from '../models/Completion';
 import { CompletionPortRepository } from '../models/completion.port.repository';
 
 export class CompletionPrismaRepository implements CompletionPortRepository {
-	insert(completion: Completion): Promise<void> {
-		throw new Error('Method not implemented.');
+	async insert(completion: Completion): Promise<void> {
+		await prisma.completion.create({
+			data: {
+				userId: completion.props.userId,
+				lessonId: completion.props.lessonId,
+			},
+		});
 	}
 
 	countCompletedLessonByCourseId(courseId: Id): Promise<number> {
