@@ -5,10 +5,7 @@ import {
 	sendMethodNotImplemented,
 	sendOk,
 } from '../../../shared/responses.utils';
-import {
-	ModuleResponseDTO,
-	ModuleResponsePopulatedDTO,
-} from '../../modules/controllers/modules.controllers';
+import { ModuleResponsePopulatedDTO } from '../../modules/controllers/modules.controllers';
 import { CoursePrismaRepository } from '../infrastructure/course.prisma.repository';
 import {
 	CreateCourse,
@@ -18,18 +15,8 @@ import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
 import { LessonPrismaRepository } from '../../lessons/infrastructure/lesson.prisma.repository';
 import { CompletionPrismaRepository } from '../../completions/infrastructure/completion.prisma.repository';
 import { CourseService } from '../models/course.service';
-
-export interface CompletionDTO {
-	total_lessons: number;
-	completed_lessons: number;
-	percentage: number;
-}
-
-export interface CourseResponseDTO {
-	id: string;
-	title: string;
-	completion: CompletionDTO;
-}
+import { ModuleResponseDTO } from '../../modules/application/module.dto';
+import { CourseResponseDTO } from '../application/course.dto';
 
 export interface CourseResponsePopulatedDTO extends CourseResponseDTO {
 	modules: (ModuleResponseDTO | ModuleResponsePopulatedDTO)[];
