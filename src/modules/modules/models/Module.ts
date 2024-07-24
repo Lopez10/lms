@@ -1,4 +1,4 @@
-export interface ModuleProps {
+interface ModuleProps {
 	id: string;
 	title: string;
 	isRootModule: boolean;
