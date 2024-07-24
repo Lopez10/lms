@@ -4,7 +4,7 @@ export interface CompletionProps {
 	lessonId: string;
 }
 
-class Completion implements CompletionProps {
+export class Completion implements CompletionProps {
 	id: string;
 	userId: string;
 	lessonId: string;
@@ -15,5 +15,3 @@ class Completion implements CompletionProps {
 		this.lessonId = completion.lessonId;
 	}
 }
-
-export default Completion;

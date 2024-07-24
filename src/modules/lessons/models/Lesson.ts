@@ -4,7 +4,7 @@ export interface LessonProps {
 	title: string;
 }
 
-class Lesson implements LessonProps {
+export class Lesson implements LessonProps {
 	id: string;
 	moduleId: string;
 	title: string;
@@ -15,5 +15,3 @@ class Lesson implements LessonProps {
 		this.title = title;
 	}
 }
-
-export default Lesson;

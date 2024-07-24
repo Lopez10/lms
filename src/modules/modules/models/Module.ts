@@ -6,7 +6,7 @@ interface ModuleProps {
 	courseId: string;
 }
 
-class Module implements ModuleProps {
+export class Module implements ModuleProps {
 	id: string;
 	title: string;
 	isRootModule: boolean;
@@ -21,5 +21,3 @@ class Module implements ModuleProps {
 		this.courseId = courseId;
 	}
 }
-
-export default Module;

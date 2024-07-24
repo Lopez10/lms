@@ -3,7 +3,7 @@ export interface CourseProps {
 	title: string;
 }
 
-class Course implements CourseProps {
+export class Course implements CourseProps {
 	id: string;
 	title: string;
 
@@ -12,5 +12,3 @@ class Course implements CourseProps {
 		this.title = title;
 	}
 }
-
-export default Course;
