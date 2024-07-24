@@ -14,6 +14,7 @@ import {
 	CreateCourse,
 	CreateCourseDto,
 } from '../application/create-course.use-case';
+import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
 
 interface CompletionDTO {
 	total_lessons: number;
@@ -50,7 +51,12 @@ export const createCourse = async (req: Request, res: Response) => {
 };
 
 export const getCourseById = async (req: Request, res: Response) => {
-	return sendMethodNotImplemented(res);
+	const getCourseByIdUseCase = new GetCourseByIdUseCase(coursePrismaRepository);
+	const { id } = req.params;
+
+	const course = await getCourseByIdUseCase.run(id);
+
+	return sendOk(res, course);
 };
 
 export const getCourses = async (req: Request, res: Response) => {
