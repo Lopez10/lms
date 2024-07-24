@@ -15,9 +15,7 @@ export class ModuleMapper {
 			{
 				title: moduleDto.title,
 				isRootModule: moduleDto.is_root_module,
-				moduleId: moduleDto.module_id
-					? Id.createExisted(moduleDto.module_id)
-					: undefined,
+				moduleId: Id.createExisted(moduleDto.module_id),
 				courseId: Id.createExisted(moduleDto.course_id),
 			},
 			Id.createExisted(moduleDto.id),
@@ -28,7 +26,7 @@ export class ModuleMapper {
 			id: module.id.value,
 			title: module.props.title,
 			is_root_module: module.props.isRootModule,
-			module_id: module.props.moduleId?.value ?? '',
+			module_id: module.props.moduleId.value,
 			course_id: module.props.courseId.value,
 		};
 	}

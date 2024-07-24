@@ -4,7 +4,7 @@ import { Id } from '../../../shared/domain/id.value-object';
 interface ModuleProps {
 	title: string;
 	isRootModule: boolean;
-	moduleId?: Id;
+	moduleId: Id;
 	courseId: Id;
 }
 

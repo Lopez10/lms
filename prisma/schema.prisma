@@ -21,7 +21,7 @@ model Module {
   title        String
   isRootModule Boolean  @default(false)
   courseId     String
-  moduleId     String?
+  moduleId     String
   submodules   Module[] @relation("Submodules")
   parentModule Module?  @relation("Submodules", fields: [moduleId], references: [id])
   Course       Course   @relation(fields: [courseId], references: [id])
