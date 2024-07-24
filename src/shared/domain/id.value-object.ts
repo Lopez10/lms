@@ -1,5 +1,5 @@
-import { InvalidCharacter, InvalidLength } from "./exceptions/exceptions";
-import { ValueObject } from "./value-object";
+import { InvalidCharacter, InvalidLength } from "./exceptions/exception";
+import { ValueObject } from "./value-object.base";
 
 export interface IdProps {
 	value: string;
