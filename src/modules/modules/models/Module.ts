@@ -12,4 +12,9 @@ export class Module extends Entity<ModuleProps> {
 	private constructor(props: ModuleProps, id?: Id) {
 		super(props, id);
 	}
+
+	static create(props: ModuleProps, id?: Id): Module {
+		const module = new Module(props, id);
+		return module;
+	}
 }
