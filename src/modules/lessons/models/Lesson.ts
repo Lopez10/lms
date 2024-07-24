@@ -1,17 +1,18 @@
+import { Entity } from "../../../shared/domain/entity.base";
+import { Id } from "../../../shared/domain/id.value-object";
+
 export interface LessonProps {
-	id: string;
 	moduleId: string;
 	title: string;
 }
 
-export class Lesson implements LessonProps {
-	id: string;
-	moduleId: string;
-	title: string;
+export class Lesson extends Entity<LessonProps> {
+	private constructor(props: LessonProps, id?: Id) {
+		super(props, id);
+	}
 
-	constructor({ id, moduleId, title }: LessonProps) {
-		this.id = id;
-		this.moduleId = moduleId;
-		this.title = title;
+	static create(props: LessonProps, id?: Id): Lesson {
+		const lesson = new Lesson(props, id);
+		return lesson;
 	}
 }
