@@ -5,7 +5,20 @@ import { prisma } from '../../../shared';
 
 export class CoursePrismaRepository implements CoursePortRepository {
 	async getById(id: Id): Promise<Course | null> {
-		throw new Error('Method not implemented.');
+		const courseDb = await prisma.course.findUnique({
+			where: { id: id.value },
+		});
+
+		if (!courseDb) {
+			return null;
+		}
+
+		return Course.create(
+			{
+				title: courseDb.title,
+			},
+			Id.createExisted(courseDb.id),
+		);
 	}
 	async getAll(): Promise<Course[]> {
 		throw new Error('Method not implemented.');
