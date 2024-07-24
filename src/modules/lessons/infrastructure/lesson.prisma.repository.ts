@@ -7,12 +7,15 @@ export class LessonPrismaRepository implements LessonPortRepository {
 	insert(lesson: Lesson): Promise<void> {
 		throw new Error('Method not implemented.');
 	}
+
 	getById(id: Id): Promise<Lesson | null> {
 		throw new Error('Method not implemented.');
 	}
+
 	getAll(): Promise<Lesson[]> {
 		throw new Error('Method not implemented.');
 	}
+
 	async countTotalLessonByCourseId(courseId: Id): Promise<number> {
 		const totalLessons = await prisma.lesson.count({
 			where: {
