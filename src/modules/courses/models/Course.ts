@@ -1,21 +1,16 @@
-
-export interface ICourse {
-  id: string;
-  title: string;
+export interface CourseProps {
+	id: string;
+	title: string;
 }
 
-class Course implements ICourse {
+class Course implements CourseProps {
+	id: string;
+	title: string;
 
-  id: string;
-  title: string;
-
-  constructor({
-    id,
-    title,
-  }: ICourse) {
-    this.id = id;
-    this.title = title;
-  }
+	constructor({ id, title }: CourseProps) {
+		this.id = id;
+		this.title = title;
+	}
 }
 
 export default Course;
