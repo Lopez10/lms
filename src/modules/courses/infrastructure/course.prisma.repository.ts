@@ -20,9 +20,20 @@ export class CoursePrismaRepository implements CoursePortRepository {
 			Id.createExisted(courseDb.id),
 		);
 	}
+
 	async getAll(): Promise<Course[]> {
-		throw new Error('Method not implemented.');
+		const coursesDb = await prisma.course.findMany();
+
+		return coursesDb.map((courseDb) =>
+			Course.create(
+				{
+					title: courseDb.title,
+				},
+				Id.createExisted(courseDb.id),
+			),
+		);
 	}
+
 	async insert(course: Course): Promise<void> {
 		const data = {
 			title: course.props.title,
