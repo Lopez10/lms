@@ -1,11 +1,11 @@
-import { InvalidCharacter, InvalidLength } from "./exceptions/exception";
-import { ValueObject } from "./value-object.base";
+import { InvalidCharacter, InvalidLength } from './exceptions';
+import { ValueObject } from './value-object.base';
 
 export interface IdProps {
 	value: string;
 }
 
-const abc = "abcdefghijklmnopqrstuvwxyz";
+const abc = 'abcdefghijklmnopqrstuvwxyz';
 const letters = abc.concat(abc.toUpperCase());
 
 const ALLOWED_CHARS = `0123456789${letters}`;
@@ -33,12 +33,12 @@ export class Id extends ValueObject<IdProps> {
 
 	public static createExisted(id: string): Id {
 		if (id.length !== CODESIZE) {
-			throw new InvalidLength("Invalid id length");
+			throw new InvalidLength('Invalid id length');
 		}
 
 		for (let i = 0; i < id.length; i += 1) {
 			if (!ALLOWED_CHARS.includes(id[i])) {
-				throw new InvalidCharacter("Invalid character in id");
+				throw new InvalidCharacter('Invalid character in id');
 			}
 		}
 
