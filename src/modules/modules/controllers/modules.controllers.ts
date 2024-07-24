@@ -1,14 +1,7 @@
-import { Request, Response } from "express";
-import { sendMethodNotImplemented } from "../../../shared/responses.utils";
-import { LessonResponseDTO } from "../../lessons/controllers/lessons.controllers";
-
-export interface ModuleResponseDTO {
-	id: string;
-	title: string;
-	is_root_module: boolean;
-	module_id: string;
-	course_id: string;
-}
+import { Request, Response } from 'express';
+import { sendMethodNotImplemented } from '../../../shared/responses.utils';
+import { LessonResponseDTO } from '../../lessons/controllers/lessons.controllers';
+import { ModuleResponseDTO } from '../application/module.dto';
 
 export interface ModuleResponsePopulatedDTO extends ModuleResponseDTO {
 	lessons: LessonResponseDTO[];
