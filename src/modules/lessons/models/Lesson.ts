@@ -1,25 +1,19 @@
-
-export interface ILesson {
-  id: string;
-  moduleId: string;
-  title: string;
+export interface LessonProps {
+	id: string;
+	moduleId: string;
+	title: string;
 }
 
-class Lesson implements ILesson {
+class Lesson implements LessonProps {
+	id: string;
+	moduleId: string;
+	title: string;
 
-  id: string;
-  moduleId: string;
-  title: string;
-
-  constructor({
-    id,
-    moduleId,
-    title,
-  }: ILesson) {
-    this.id = id;
-    this.moduleId = moduleId;
-    this.title = title;
-  }
+	constructor({ id, moduleId, title }: LessonProps) {
+		this.id = id;
+		this.moduleId = moduleId;
+		this.title = title;
+	}
 }
 
 export default Lesson;
