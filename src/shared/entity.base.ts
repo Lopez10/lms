@@ -3,11 +3,11 @@ const isEntity = (v: unknown): v is Entity<unknown> => {
 };
 
 export abstract class Entity<T> {
-	protected readonly _id: string;
+	protected readonly id: string;
 	public readonly props: T;
 
 	constructor(props: T, id?: string) {
-		this._id = id ? id : '';
+		this.id = id ? id : '';
 		this.props = props;
 	}
 
@@ -24,6 +24,6 @@ export abstract class Entity<T> {
 			return false;
 		}
 
-		return this._id === object._id;
+		return this.id === object.id;
 	}
 }
