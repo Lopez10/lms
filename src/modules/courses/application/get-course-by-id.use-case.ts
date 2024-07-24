@@ -6,7 +6,7 @@ import {
 } from '../controllers/courses.controllers';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
-import { toDto } from './toDto';
+import { toDto } from './mapper';
 
 export class GetCourseByIdUseCase {
 	constructor(
