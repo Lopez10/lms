@@ -1,9 +1,19 @@
 import { Request, Response } from 'express';
-import { sendMethodNotImplemented } from '../../../shared/responses.utils';
+import {
+	sendBadRequest,
+	sendCreated,
+	sendMethodNotImplemented,
+	sendOk,
+} from '../../../shared/responses.utils';
 import {
 	ModuleResponseDTO,
 	ModuleResponsePopulatedDTO,
 } from '../../modules/controllers/modules.controllers';
+import { CoursePrismaRepository } from '../infrastructure/course.prisma.repository';
+import {
+	CreateCourse,
+	CreateCourseDto,
+} from '../application/create-course.use-case';
 
 interface CompletionDTO {
 	total_lessons: number;
@@ -21,8 +31,22 @@ export interface CourseResponsePopulatedDTO extends CourseResponseDTO {
 	modules: (ModuleResponseDTO | ModuleResponsePopulatedDTO)[];
 }
 
+const coursePrismaRepository = new CoursePrismaRepository();
+
 export const createCourse = async (req: Request, res: Response) => {
-	return sendMethodNotImplemented(res);
+	try {
+		const createCourseDto: CreateCourseDto = req.body;
+		const createCourseUseCase = new CreateCourse(coursePrismaRepository);
+
+		await createCourseUseCase.run(createCourseDto);
+
+		sendCreated(res, {
+			message: 'Course created successfully',
+			data: {},
+		});
+	} catch (error) {
+		return sendBadRequest(res);
+	}
 };
 
 export const getCourseById = async (req: Request, res: Response) => {
