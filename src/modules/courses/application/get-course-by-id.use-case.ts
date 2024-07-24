@@ -1,12 +1,9 @@
 import { Id } from '../../../shared';
 import { NotFoundException } from '../../../shared/application/exceptions';
-import {
-	CompletionDTO,
-	CourseResponseDTO,
-} from '../controllers/courses.controllers';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
-import { toDto } from './mapper';
+import { CourseResponseDTO, CompletionDTO } from './course.dto';
+import { CourseMapper } from './course.mapper';
 
 export class GetCourseByIdUseCase {
 	constructor(
@@ -33,6 +30,6 @@ export class GetCourseByIdUseCase {
 			percentage: progress,
 		};
 
-		return toDto(course, completionDto);
+		return CourseMapper.toDto(course, completionDto);
 	}
 }
