@@ -7,7 +7,7 @@ export class CompletionPrismaRepository implements CompletionPortRepository {
 		await prisma.completion.create({
 			data: {
 				userId: completion.props.userId,
-				lessonId: completion.props.lessonId,
+				lessonId: completion.props.lessonId.value,
 			},
 		});
 	}

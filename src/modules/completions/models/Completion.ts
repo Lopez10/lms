@@ -3,7 +3,7 @@ import { Id } from '../../../shared/domain/id.value-object';
 
 export interface CompletionProps {
 	userId: string;
-	lessonId: string;
+	lessonId: Id;
 }
 
 export class Completion extends Entity<CompletionProps> {
