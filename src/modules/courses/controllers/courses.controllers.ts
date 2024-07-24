@@ -38,11 +38,11 @@ export const createCourse = async (req: Request, res: Response) => {
 		const createCourseDto: CreateCourseDto = req.body;
 		const createCourseUseCase = new CreateCourse(coursePrismaRepository);
 
-		await createCourseUseCase.run(createCourseDto);
+		const courseCreated = await createCourseUseCase.run(createCourseDto);
 
 		sendCreated(res, {
 			message: 'Course created successfully',
-			data: {},
+			data: courseCreated,
 		});
 	} catch (error) {
 		return sendBadRequest(res);
