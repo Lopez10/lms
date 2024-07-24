@@ -1,6 +1,6 @@
-import { CourseResponseDTO } from '../controllers/courses.controllers';
 import { Course } from '../models/Course';
 import { CoursePortRepository } from '../models/course.port.repository';
+import { CourseResponseDTO } from './course.dto';
 
 export interface CreateCourseDto {
 	title: string;
