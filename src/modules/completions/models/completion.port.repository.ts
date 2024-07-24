@@ -1,7 +1,8 @@
+import { Id } from '../../../shared';
 import { Completion } from './Completion';
 
 export interface CompletionPortRepository {
 	insert(completion: Completion): Promise<void>;
 
-	countCompletedLessonByCourseId(courseId: string): Promise<number>;
+	countCompletedLessonByCourseId(courseId: Id): Promise<number>;
 }

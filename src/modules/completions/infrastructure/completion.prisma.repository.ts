@@ -1,4 +1,4 @@
-import { prisma } from '../../../shared';
+import { Id, prisma } from '../../../shared';
 import { Completion } from '../models/Completion';
 import { CompletionPortRepository } from '../models/completion.port.repository';
 
@@ -7,12 +7,12 @@ export class CompletionPrismaRepository implements CompletionPortRepository {
 		throw new Error('Method not implemented.');
 	}
 
-	countCompletedLessonByCourseId(courseId: string): Promise<number> {
+	countCompletedLessonByCourseId(courseId: Id): Promise<number> {
 		const completedLessons = prisma.completion.count({
 			where: {
 				Lesson: {
 					Module: {
-						courseId: courseId,
+						courseId: courseId.value,
 					},
 				},
 			},
