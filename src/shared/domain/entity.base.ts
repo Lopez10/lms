@@ -1,4 +1,4 @@
-import { Id } from "./id.value-object";
+import { Id } from './id.value-object';
 
 const isEntity = (v: unknown): v is Entity<unknown> => {
 	return v instanceof Entity;
@@ -11,6 +11,10 @@ export abstract class Entity<T> {
 	constructor(props: T, id?: Id) {
 		this._id = id ? id : Id.generateId();
 		this.props = props;
+	}
+
+	get id(): Id {
+		return this._id;
 	}
 
 	public equals(object?: Entity<T>): boolean {
