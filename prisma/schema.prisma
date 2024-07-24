@@ -6,6 +6,41 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model Course {
+  id     Int      @id @default(autoincrement())
+  title  String
+  Module Module[]
+}
+
+model Module {
+  id           Int      @id @default(autoincrement())
+  title        String
+  isRootModule Boolean  @default(false)
+  courseId     Int
+  moduleId     Int?
+  submodules   Module[] @relation("Submodules")
+  parentModule Module?  @relation("Submodules", fields: [moduleId], references: [id])
+  Course       Course   @relation(fields: [courseId], references: [id])
+  Lesson       Lesson[]
+}
+
+model Lesson {
+  id         Int          @id @default(autoincrement())
+  title      String
+  moduleId   Int
+  Module     Module       @relation(fields: [moduleId], references: [id])
+  Completion Completion[]
+}
+
+model Completion {
+  userId      Int
+  lessonId    Int
+  completedAt DateTime @default(now())
+  lesson      Lesson   @relation(fields: [lessonId], references: [id])
+
+  @@id([userId, lessonId])
 }
