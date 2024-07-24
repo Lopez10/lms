@@ -1,17 +1,18 @@
+import { Entity } from "../../../shared/domain/entity.base";
+import { Id } from "../../../shared/domain/id.value-object";
+
 export interface CompletionProps {
-	id: string;
 	userId: string;
 	lessonId: string;
 }
 
-export class Completion implements CompletionProps {
-	id: string;
-	userId: string;
-	lessonId: string;
+export class Completion extends Entity<CompletionProps> {
+	private constructor(props: CompletionProps, id?: Id) {
+		super(props, id);
+	}
 
-	constructor(completion: CompletionProps) {
-		this.id = completion.id;
-		this.userId = completion.userId;
-		this.lessonId = completion.lessonId;
+	static create(props: CompletionProps, id?: Id): Completion {
+		const lesson = new Completion(props, id);
+		return lesson;
 	}
 }
