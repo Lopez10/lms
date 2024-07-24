@@ -1,5 +1,16 @@
 import { Course } from '../models/Course';
-import { CompletionDTO, CourseResponseDTO } from './course.dto';
+
+export interface CourseResponseDTO {
+	id: string;
+	title: string;
+	completion: CompletionDTO;
+}
+
+export interface CompletionDTO {
+	total_lessons: number;
+	completed_lessons: number;
+	percentage: number;
+}
 
 export class CourseMapper {
 	static toDto(

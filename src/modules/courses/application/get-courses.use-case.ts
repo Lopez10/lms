@@ -1,8 +1,11 @@
 import { Course } from '../models/Course';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
-import { CourseResponseDTO, CompletionDTO } from './course.dto';
-import { CourseMapper } from './course.mapper';
+import {
+	CompletionDTO,
+	CourseMapper,
+	CourseResponseDTO,
+} from './course.mapper';
 
 export class GetCoursesUseCase {
 	constructor(

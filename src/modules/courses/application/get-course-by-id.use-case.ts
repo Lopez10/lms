@@ -2,8 +2,11 @@ import { Id } from '../../../shared';
 import { NotFoundException } from '../../../shared/application/exceptions';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
-import { CourseResponseDTO, CompletionDTO } from './course.dto';
-import { CourseMapper } from './course.mapper';
+import {
+	CompletionDTO,
+	CourseMapper,
+	CourseResponseDTO,
+} from './course.mapper';
 
 export class GetCourseByIdUseCase {
 	constructor(

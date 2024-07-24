@@ -15,8 +15,8 @@ import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
 import { LessonPrismaRepository } from '../../lessons/infrastructure/lesson.prisma.repository';
 import { CompletionPrismaRepository } from '../../completions/infrastructure/completion.prisma.repository';
 import { CourseService } from '../models/course.service';
-import { ModuleResponseDTO } from '../../modules/application/module.dto';
-import { CourseResponseDTO } from '../application/course.dto';
+import { ModuleResponseDTO } from '../../modules/application/module.mapper';
+import { CourseResponseDTO } from '../application/course.mapper';
 
 export interface CourseResponsePopulatedDTO extends CourseResponseDTO {
 	modules: (ModuleResponseDTO | ModuleResponsePopulatedDTO)[];

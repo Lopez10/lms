@@ -1,6 +1,6 @@
 import { Course } from '../models/Course';
 import { CoursePortRepository } from '../models/course.port.repository';
-import { CourseResponseDTO } from './course.dto';
+import { CourseResponseDTO } from './course.mapper';
 
 export interface CreateCourseDto {
 	title: string;
