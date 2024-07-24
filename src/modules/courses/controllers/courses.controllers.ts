@@ -15,8 +15,11 @@ import {
 	CreateCourseDto,
 } from '../application/create-course.use-case';
 import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
+import { LessonPrismaRepository } from '../../lessons/infrastructure/lesson.prisma.repository';
+import { CompletionPrismaRepository } from '../../completions/infrastructure/completion.prisma.repository';
+import { CourseService } from '../models/course.service';
 
-interface CompletionDTO {
+export interface CompletionDTO {
 	total_lessons: number;
 	completed_lessons: number;
 	percentage: number;
@@ -33,6 +36,10 @@ export interface CourseResponsePopulatedDTO extends CourseResponseDTO {
 }
 
 const coursePrismaRepository = new CoursePrismaRepository();
+const lessonRepository = new LessonPrismaRepository();
+const completionRepository = new CompletionPrismaRepository();
+
+const courseService = new CourseService(completionRepository, lessonRepository);
 
 export const createCourse = async (req: Request, res: Response) => {
 	try {
@@ -51,7 +58,10 @@ export const createCourse = async (req: Request, res: Response) => {
 };
 
 export const getCourseById = async (req: Request, res: Response) => {
-	const getCourseByIdUseCase = new GetCourseByIdUseCase(coursePrismaRepository);
+	const getCourseByIdUseCase = new GetCourseByIdUseCase(
+		coursePrismaRepository,
+		courseService,
+	);
 	const { id } = req.params;
 
 	const course = await getCourseByIdUseCase.run(id);
