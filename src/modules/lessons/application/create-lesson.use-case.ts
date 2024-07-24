@@ -14,7 +14,7 @@ export class CreateLessonUseCase {
 		const lesson = Lesson.create(createLessonDto);
 		await this.lessonRepository.insert(lesson);
 
-		// check Lesson is completed
+		// TODO: check Lesson is completed
 
 		return {
 			id: lesson.id.value,
