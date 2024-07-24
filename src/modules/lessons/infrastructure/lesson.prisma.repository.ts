@@ -14,6 +14,14 @@ export class LessonPrismaRepository implements LessonPortRepository {
 		throw new Error('Method not implemented.');
 	}
 	countTotalLessonByCourseId(courseId: Id): Promise<number> {
-		throw new Error('Method not implemented.');
+		const totalLessons = prisma.lesson.count({
+			where: {
+				Module: {
+					courseId: courseId.value,
+				},
+			},
+		});
+
+		return totalLessons;
 	}
 }
