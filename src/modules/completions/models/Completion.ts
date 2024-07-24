@@ -2,7 +2,7 @@ import { Entity } from '../../../shared/domain/entity.base';
 import { Id } from '../../../shared/domain/id.value-object';
 
 export interface CompletionProps {
-	userId: string;
+	userId: Id;
 	lessonId: Id;
 }
 

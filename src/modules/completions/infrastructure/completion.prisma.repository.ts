@@ -17,7 +17,7 @@ export class CompletionPrismaRepository implements CompletionPortRepository {
 			where: {
 				Lesson: {
 					Module: {
-						courseId: courseId.value,
+						course_id: courseId.value,
 					},
 				},
 			},
