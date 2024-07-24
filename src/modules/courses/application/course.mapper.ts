@@ -1,3 +1,4 @@
+import { Id } from '../../../shared';
 import { Course } from '../models/Course';
 
 export interface CourseResponseDTO {
@@ -10,6 +11,11 @@ export interface CompletionDTO {
 	total_lessons: number;
 	completed_lessons: number;
 	percentage: number;
+}
+
+export interface CourseDto {
+	id: string;
+	title: string;
 }
 
 export class CourseMapper {
@@ -26,5 +32,15 @@ export class CourseMapper {
 				percentage: completionDto.percentage,
 			},
 		};
+	}
+
+	static toDomain(courseDto: CourseDto): Course {
+		const course = Course.create(
+			{
+				title: courseDto.title,
+			},
+			Id.createExisted(courseDto.id),
+		);
+		return course;
 	}
 }
