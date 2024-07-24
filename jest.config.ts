@@ -1,9 +1,9 @@
 export default {
-  clearMocks: true,
-  testMatch: ['<rootDir>/tests/**/*.test.ts'],
-  transform: {
-    '^.+\\.ts$': 'ts-jest',
-  },
-  roots: ['<rootDir>/tests'],
-  moduleFileExtensions: ['ts', 'js'],
+	clearMocks: true,
+	testMatch: ['<rootDir>/tests/**/*.test.ts'],
+	transform: {
+		'^.+\\.ts$': 'ts-jest',
+	},
+	roots: ['<rootDir>/tests/modules'],
+	moduleFileExtensions: ['ts', 'js'],
 };

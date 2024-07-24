@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node --files src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "jest --config ./tests/integration/jest-e2e.json --runInBand --watch"
   },
   "author": "David Dionis (@daviddionis)",
   "license": "ISC",
