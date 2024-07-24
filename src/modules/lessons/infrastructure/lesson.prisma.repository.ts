@@ -13,8 +13,8 @@ export class LessonPrismaRepository implements LessonPortRepository {
 	getAll(): Promise<Lesson[]> {
 		throw new Error('Method not implemented.');
 	}
-	countTotalLessonByCourseId(courseId: Id): Promise<number> {
-		const totalLessons = prisma.lesson.count({
+	async countTotalLessonByCourseId(courseId: Id): Promise<number> {
+		const totalLessons = await prisma.lesson.count({
 			where: {
 				Module: {
 					courseId: courseId.value,
