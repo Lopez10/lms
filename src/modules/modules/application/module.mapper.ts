@@ -1,6 +1,5 @@
 import { Id } from '../../../shared';
 import { Module } from '../models/Module';
-import { CreateModuleDto } from './create-module.use-case';
 
 export interface ModuleResponseDTO {
 	id: string;
@@ -11,15 +10,18 @@ export interface ModuleResponseDTO {
 }
 
 export class ModuleMapper {
-	static toDomain(createModuleDto: CreateModuleDto): Module {
-		return Module.create({
-			title: createModuleDto.title,
-			isRootModule: createModuleDto.isRootModule,
-			moduleId: createModuleDto.moduleId
-				? Id.createExisted(createModuleDto.moduleId)
-				: undefined,
-			courseId: Id.createExisted(createModuleDto.courseId),
-		});
+	static toDomain(moduleDto: ModuleResponseDTO): Module {
+		return Module.create(
+			{
+				title: moduleDto.title,
+				isRootModule: moduleDto.is_root_module,
+				moduleId: moduleDto.module_id
+					? Id.createExisted(moduleDto.module_id)
+					: undefined,
+				courseId: Id.createExisted(moduleDto.course_id),
+			},
+			Id.createExisted(moduleDto.id),
+		);
 	}
 	static toDto(module: Module): ModuleResponseDTO {
 		return {
