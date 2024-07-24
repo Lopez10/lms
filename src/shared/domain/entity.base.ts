@@ -1,13 +1,15 @@
+import { Id } from "./id.value-object";
+
 const isEntity = (v: unknown): v is Entity<unknown> => {
 	return v instanceof Entity;
 };
 
 export abstract class Entity<T> {
-	protected readonly id: string;
+	protected readonly _id: Id;
 	public readonly props: T;
 
-	constructor(props: T, id?: string) {
-		this.id = id ? id : '';
+	constructor(props: T, id?: Id) {
+		this._id = id ? id : Id.generateId();
 		this.props = props;
 	}
 
@@ -24,6 +26,6 @@ export abstract class Entity<T> {
 			return false;
 		}
 
-		return this.id === object.id;
+		return this._id.equals(object._id);
 	}
 }
