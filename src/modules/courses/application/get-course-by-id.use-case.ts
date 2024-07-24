@@ -4,9 +4,9 @@ import {
 	CompletionDTO,
 	CourseResponseDTO,
 } from '../controllers/courses.controllers';
-import { Course } from '../models/Course';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
+import { toDto } from './toDto';
 
 export class GetCourseByIdUseCase {
 	constructor(
@@ -35,19 +35,4 @@ export class GetCourseByIdUseCase {
 
 		return toDto(course, completionDto);
 	}
-}
-
-function toDto(
-	course: Course,
-	completionDto: CompletionDTO,
-): CourseResponseDTO {
-	return {
-		id: course.id.value,
-		title: course.props.title,
-		completion: {
-			total_lessons: completionDto.total_lessons,
-			completed_lessons: completionDto.completed_lessons,
-			percentage: completionDto.percentage,
-		},
-	};
 }
