@@ -1,11 +1,11 @@
-import { Entity } from "../../../shared/domain/entity.base";
-import { Id } from "../../../shared/domain/id.value-object";
+import { Entity } from '../../../shared/domain/entity.base';
+import { Id } from '../../../shared/domain/id.value-object';
 
 interface ModuleProps {
 	title: string;
 	isRootModule: boolean;
-	moduleId: string;
-	courseId: string;
+	moduleId?: Id;
+	courseId: Id;
 }
 
 export class Module extends Entity<ModuleProps> {
