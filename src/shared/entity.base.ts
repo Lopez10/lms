@@ -1,15 +1,17 @@
-export interface EntityData {
-	id: string;
-}
-
-const isEntity = (v: unknown): v is Entity => {
+const isEntity = (v: unknown): v is Entity<unknown> => {
 	return v instanceof Entity;
 };
 
-export abstract class Entity implements EntityData {
-	constructor(public id: string) {}
+export abstract class Entity<T> {
+	protected readonly _id: string;
+	public readonly props: T;
 
-	public equals(object?: Entity): boolean {
+	constructor(props: T, id?: string) {
+		this._id = id ? id : '';
+		this.props = props;
+	}
+
+	public equals(object?: Entity<T>): boolean {
 		if (object === null || object === undefined) {
 			return false;
 		}
@@ -22,6 +24,6 @@ export abstract class Entity implements EntityData {
 			return false;
 		}
 
-		return this.id === object.id;
+		return this._id === object._id;
 	}
 }
