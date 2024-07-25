@@ -4,7 +4,7 @@ import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
 import {
 	CourseResponseWithStatisticsDto,
 	COURSES_DEPENDENCIES,
-} from './courses.dependencies';
+} from './course.dependencies';
 
 export const getCourseById = async (req: Request, res: Response) => {
 	const getCourseByIdUseCase = new GetCourseByIdUseCase(

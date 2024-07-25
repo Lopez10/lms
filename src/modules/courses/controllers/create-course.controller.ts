@@ -5,7 +5,7 @@ import { sendBadRequest, sendCreated } from '../../../shared';
 import {
 	CourseResponseWithStatisticsDto,
 	COURSES_DEPENDENCIES,
-} from './courses.dependencies';
+} from './course.dependencies';
 
 export const createCourse = async (req: Request, res: Response) => {
 	try {

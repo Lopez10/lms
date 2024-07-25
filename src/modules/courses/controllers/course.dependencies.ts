@@ -1,7 +1,7 @@
 import { CoursePrismaRepository } from '../infrastructure/course.prisma.repository';
 import { CourseService } from '../models/course.service';
-import { LESSON_DEPENDENCIES } from '../../lessons/controllers/lessons.controllers';
-import { MODULE_DEPENDENCIES } from '../../modules/controllers/modules.controllers';
+import { LESSON_DEPENDENCIES } from '../../lessons/controllers/lesson.dependencies';
+import { MODULE_DEPENDENCIES } from '../../modules/controllers/module.dependencies';
 
 const coursePrismaRepository = new CoursePrismaRepository();
 
