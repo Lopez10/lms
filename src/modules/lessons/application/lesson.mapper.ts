@@ -27,7 +27,7 @@ export class LessonMapper {
 		return Lesson.create(
 			{
 				title: lesson.name,
-				moduleId: lesson.moduleId,
+				moduleId: Id.createExisted(lesson.moduleId),
 			},
 			Id.createExisted(lesson.id),
 		);
