@@ -7,7 +7,7 @@ import { Completion } from '../../../modules/completions/domain/completion.entit
 export class CompletionMother {
 	static create(params: Partial<CompletionDto>): Completion {
 		const completionDto: CompletionDto = {
-			id: 'completion-id',
+			id: 'completion1',
 			user_id: 'user-id',
 			lesson_id: 'lesson-id',
 			...params,
