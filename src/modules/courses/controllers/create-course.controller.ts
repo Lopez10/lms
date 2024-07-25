@@ -30,6 +30,7 @@ export const createCourse = async (req: Request, res: Response) => {
 			data: responseCourseDto,
 		});
 	} catch (error) {
+		console.error(error);
 		return sendBadRequest(res);
 	}
 };
