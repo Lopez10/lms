@@ -45,7 +45,15 @@ model Completion {
   lessonId    String
   completedAt DateTime @default(now())
   Lesson      Lesson   @relation(fields: [lessonId], references: [id])
+  User        User     @relation(fields: [userId], references: [id])
 
   @@id([userId, lessonId])
   @@index([lessonId])
+}
+
+model User {
+  id          String       @id @default(uuid())
+  email       String       @unique
+  name        String
+  completions Completion[]
 }
