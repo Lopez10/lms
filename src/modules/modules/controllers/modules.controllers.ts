@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import { sendMethodNotImplemented } from '../../../shared/responses.utils';
-import { LessonResponseDTO } from '../../lessons/application/lesson.mapper';
+import { LessonResponseDto } from '../../lessons/application/lesson.mapper';
 import { ModuleResponseDto } from '../application/module.mapper';
 
 export interface ModuleResponsePopulatedDTO extends ModuleResponseDto {
-	lessons: LessonResponseDTO[];
+	lessons: LessonResponseDto[];
 	modules: ModuleResponsePopulatedDTO[];
 }
 

@@ -1,7 +1,7 @@
 import { Id } from '../../../shared';
 import { Lesson } from '../models/lesson.entity';
 
-export interface LessonResponseDTO {
+export interface LessonResponseDto {
 	id: string;
 	title: string;
 	module_id: string;

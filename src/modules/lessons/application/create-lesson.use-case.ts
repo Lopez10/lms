@@ -1,15 +1,13 @@
 import { Lesson, LessonPrimitives } from '../models/lesson.entity';
 import { LessonPortRepository } from '../models/lesson.port.repository';
-import { LessonMapper, LessonResponseDTO } from './lesson.mapper';
+import { LessonResponseDto } from './lesson.mapper';
 
 export class CreateLessonUseCase {
 	constructor(private readonly lessonRepository: LessonPortRepository) {}
 
-	async run(createLessonDto: LessonPrimitives): Promise<LessonResponseDTO> {
+	async run(createLessonDto: LessonPrimitives): Promise<LessonResponseDto> {
 		const lesson = Lesson.createByPrimitives(createLessonDto);
 		await this.lessonRepository.insert(lesson);
-
-		// TODO: check Lesson is completed
 
 		return {
 			id: lesson.id.value,

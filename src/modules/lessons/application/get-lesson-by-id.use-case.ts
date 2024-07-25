@@ -1,11 +1,11 @@
 import { Id } from '../../../shared';
 import { LessonPortRepository } from '../models/lesson.port.repository';
-import { LessonResponseDTO } from './lesson.mapper';
+import { LessonResponseDto } from './lesson.mapper';
 
 export class GetLessonByIdUseCase {
 	constructor(private readonly lessonRepository: LessonPortRepository) {}
 
-	async run(id: string): Promise<LessonResponseDTO> {
+	async run(id: string): Promise<LessonResponseDto> {
 		const lessonId = Id.createExisted(id);
 		const lesson = await this.lessonRepository.getById(lessonId);
 

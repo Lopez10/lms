@@ -1,10 +1,10 @@
 import { LessonPortRepository } from '../models/lesson.port.repository';
-import { LessonResponseDTO, LessonMapper } from './lesson.mapper';
+import { LessonResponseDto, LessonMapper } from './lesson.mapper';
 
 export class GetLessonsUseCase {
 	constructor(private readonly lessonRepository: LessonPortRepository) {}
 
-	async run(): Promise<LessonResponseDTO[]> {
+	async run(): Promise<LessonResponseDto[]> {
 		const lessons = await this.lessonRepository.getAll();
 
 		// TODO: check Lesson is completed
