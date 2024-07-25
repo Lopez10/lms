@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Module } from '../models/module.entity';
+import { Module } from '../domain/module.entity';
 
 export interface ModuleDto {
 	id: string;

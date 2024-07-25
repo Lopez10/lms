@@ -2,7 +2,7 @@ import {
 	ModuleMapper,
 	ModuleDto,
 } from '../../../modules/modules/application/module.mapper';
-import { Module } from '../../../modules/modules/models/module.entity';
+import { Module } from '../../../modules/modules/domain/module.entity';
 
 export class ModuleMother {
 	static create(params: Partial<ModuleDto>): Module {

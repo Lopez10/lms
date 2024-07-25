@@ -1,5 +1,5 @@
 import { CoursePrismaRepository } from '../infrastructure/course.prisma.repository';
-import { CourseService } from '../models/course.service';
+import { CourseService } from '../domain/course.service';
 import { LESSON_DEPENDENCIES } from '../../lessons/controllers/lesson.dependencies';
 import { MODULE_DEPENDENCIES } from '../../modules/controllers/module.dependencies';
 

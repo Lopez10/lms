@@ -1,7 +1,7 @@
 import { Id } from '../../../shared';
-import { Module } from '../../modules/models/module.entity';
-import { Lesson } from '../models/lesson.entity';
-import { LessonPortRepository } from '../models/lesson.port.repository';
+import { Module } from '../../modules/domain/module.entity';
+import { Lesson } from '../domain/lesson.entity';
+import { LessonPortRepository } from '../domain/lesson.port.repository';
 
 export class LessonInMemoryRepository implements LessonPortRepository {
 	private readonly lessons: Lesson[] = [];

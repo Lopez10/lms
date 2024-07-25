@@ -1,5 +1,5 @@
-import { Course, CoursePrimitives } from '../models/course.entity';
-import { CoursePortRepository } from '../models/course.port.repository';
+import { Course, CoursePrimitives } from '../domain/course.entity';
+import { CoursePortRepository } from '../domain/course.port.repository';
 
 export class CreateCourse {
 	constructor(private readonly courseRepository: CoursePortRepository) {}

@@ -1,6 +1,6 @@
 import { Id, prisma } from '../../../shared';
-import { Completion } from '../models/completion.entity';
-import { CompletionPortRepository } from '../models/completion.port.repository';
+import { Completion } from '../domain/completion.entity';
+import { CompletionPortRepository } from '../domain/completion.port.repository';
 
 export class CompletionPrismaRepository implements CompletionPortRepository {
 	async insert(completion: Completion): Promise<void> {

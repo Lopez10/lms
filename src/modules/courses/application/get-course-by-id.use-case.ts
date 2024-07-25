@@ -1,7 +1,7 @@
 import { Id } from '../../../shared';
 import { NotFoundException } from '../../../shared/application/exceptions';
-import { Course } from '../models/course.entity';
-import { CoursePortRepository } from '../models/course.port.repository';
+import { Course } from '../domain/course.entity';
+import { CoursePortRepository } from '../domain/course.port.repository';
 
 export class GetCourseByIdUseCase {
 	constructor(private readonly courseRepository: CoursePortRepository) {}

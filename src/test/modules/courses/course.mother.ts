@@ -3,7 +3,7 @@ import {
 	CourseMapper,
 	CourseResponseWithStatisticsDto,
 } from '../../../modules/courses/application/course.mapper';
-import { Course } from '../../../modules/courses/models/course.entity';
+import { Course } from '../../../modules/courses/domain/course.entity';
 
 export class CourseMother {
 	static create(params: Partial<CourseResponseWithStatisticsDto>): Course {

@@ -1,6 +1,6 @@
 import { Id } from '../../../shared';
-import { Module } from '../models/module.entity';
-import { ModulePortRepository } from '../models/module.port.repository';
+import { Module } from '../domain/module.entity';
+import { ModulePortRepository } from '../domain/module.port.repository';
 
 export class ModuleInMemoryRepository implements ModulePortRepository {
 	private readonly modules: Module[] = [];

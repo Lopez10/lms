@@ -1,6 +1,6 @@
 import { Id } from '../../../shared';
-import { CompletionPortRepository } from '../../completions/models/completion.port.repository';
-import { LessonPortRepository } from '../../lessons/models/lesson.port.repository';
+import { CompletionPortRepository } from '../../completions/domain/completion.port.repository';
+import { LessonPortRepository } from '../../lessons/domain/lesson.port.repository';
 
 export class CourseService {
 	constructor(

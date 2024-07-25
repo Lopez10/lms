@@ -1,5 +1,5 @@
-import { Lesson, LessonPrimitives } from '../models/lesson.entity';
-import { LessonPortRepository } from '../models/lesson.port.repository';
+import { Lesson, LessonPrimitives } from '../domain/lesson.entity';
+import { LessonPortRepository } from '../domain/lesson.port.repository';
 
 export class CreateLessonUseCase {
 	constructor(private readonly lessonRepository: LessonPortRepository) {}

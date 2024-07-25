@@ -1,5 +1,5 @@
-import { Module, ModulePrimitives } from '../models/module.entity';
-import { ModulePortRepository } from '../models/module.port.repository';
+import { Module, ModulePrimitives } from '../domain/module.entity';
+import { ModulePortRepository } from '../domain/module.port.repository';
 
 export class CreateModuleUseCase {
 	constructor(private readonly moduleRepository: ModulePortRepository) {}

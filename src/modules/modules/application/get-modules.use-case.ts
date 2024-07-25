@@ -1,5 +1,5 @@
-import { Module } from '../models/module.entity';
-import { ModulePortRepository } from '../models/module.port.repository';
+import { Module } from '../domain/module.entity';
+import { ModulePortRepository } from '../domain/module.port.repository';
 
 export class GetModules {
 	constructor(private readonly moduleRepository: ModulePortRepository) {}

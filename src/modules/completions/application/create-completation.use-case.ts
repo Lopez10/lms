@@ -1,5 +1,5 @@
-import { Completion, CompletionPrimitives } from '../models/completion.entity';
-import { CompletionPortRepository } from '../models/completion.port.repository';
+import { Completion, CompletionPrimitives } from '../domain/completion.entity';
+import { CompletionPortRepository } from '../domain/completion.port.repository';
 
 export class CreateCompletationUseCase {
 	constructor(

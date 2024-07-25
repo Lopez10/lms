@@ -2,7 +2,7 @@ import {
 	LessonDto,
 	LessonMapper,
 } from '../../../modules/lessons/application/lesson.mapper';
-import { Lesson } from '../../../modules/lessons/models/lesson.entity';
+import { Lesson } from '../../../modules/lessons/domain/lesson.entity';
 
 export class LessonMother {
 	static create(params: Partial<LessonDto>): Lesson {

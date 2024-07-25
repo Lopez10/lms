@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { CreateCourse } from '../application/create-course.use-case';
-import { CoursePrimitives } from '../models/course.entity';
+import { CoursePrimitives } from '../domain/course.entity';
 import { sendBadRequest, sendCreated } from '../../../shared';
 import {
 	CourseResponseWithStatisticsDto,

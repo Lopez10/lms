@@ -1,7 +1,7 @@
 import { Id } from '../../../shared';
 import { prisma } from '../../../shared';
-import { Lesson } from '../models/lesson.entity';
-import { LessonPortRepository } from '../models/lesson.port.repository';
+import { Lesson } from '../domain/lesson.entity';
+import { LessonPortRepository } from '../domain/lesson.port.repository';
 
 export class LessonPrismaRepository implements LessonPortRepository {
 	insert(lesson: Lesson): Promise<void> {

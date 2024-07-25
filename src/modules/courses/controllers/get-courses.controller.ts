@@ -4,8 +4,8 @@ import { CompletionPrismaRepository } from '../../completions/infrastructure/com
 import { LessonPrismaRepository } from '../../lessons/infrastructure/lesson.prisma.repository';
 import { GetCoursesUseCase } from '../application/get-courses.use-case';
 import { CoursePrismaRepository } from '../infrastructure/course.prisma.repository';
-import { Course } from '../models/course.entity';
-import { CourseService } from '../models/course.service';
+import { Course } from '../domain/course.entity';
+import { CourseService } from '../domain/course.service';
 
 const coursePrismaRepository = new CoursePrismaRepository();
 const lessonRepository = new LessonPrismaRepository();

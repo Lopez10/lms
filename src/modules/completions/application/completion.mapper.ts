@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Completion } from '../models/completion.entity';
+import { Completion } from '../domain/completion.entity';
 
 export interface CompletionDto {
 	id: string;
