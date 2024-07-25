@@ -1,7 +1,7 @@
 import { Course, CoursePrimitives } from '../domain/course.entity';
 import { CoursePortRepository } from '../domain/course.port.repository';
 
-export class CreateCourse {
+export class CreateCourseUseCase {
 	constructor(private readonly courseRepository: CoursePortRepository) {}
 
 	async run(courseDto: CoursePrimitives): Promise<Course> {

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateCourse } from '../application/create-course.use-case';
+import { CreateCourseUseCase } from '../application/create-course.use-case';
 import { CoursePrimitives } from '../domain/course.entity';
 import { sendBadRequest, sendCreated } from '../../../shared';
 import {
@@ -10,7 +10,7 @@ import {
 export const createCourse = async (req: Request, res: Response) => {
 	try {
 		const createCourseDto: CoursePrimitives = req.body;
-		const createCourseUseCase = new CreateCourse(
+		const createCourseUseCase = new CreateCourseUseCase(
 			COURSES_DEPENDENCIES.coursePrismaRepository,
 		);
 
