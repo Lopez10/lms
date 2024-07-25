@@ -17,3 +17,12 @@ export class InvalidCharacter extends ExceptionBase {
 		super(message);
 	}
 }
+
+export class InvalidValueObjectFormat extends ExceptionBase {
+	readonly code = 'INVALID_VALUE_OBJECT_FORMAT';
+	static message = 'Invalid value object format';
+
+	constructor(message = InvalidValueObjectFormat.message) {
+		super(message);
+	}
+}
