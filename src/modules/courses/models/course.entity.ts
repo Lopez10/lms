@@ -5,6 +5,10 @@ export interface CourseProps {
 	title: string;
 }
 
+export interface CoursePrimitives {
+	title: string;
+}
+
 export class Course extends Entity<CourseProps> {
 	private constructor(props: CourseProps, id?: Id) {
 		super(props, id);
@@ -13,5 +17,14 @@ export class Course extends Entity<CourseProps> {
 	static create(props: CourseProps, id?: Id): Course {
 		const lesson = new Course(props, id);
 		return lesson;
+	}
+
+	static createByPrimitives(primitives: CoursePrimitives, id?: string): Course {
+		return Course.create(
+			{
+				title: primitives.title,
+			},
+			id ? Id.createExisted(id) : Id.generateId(),
+		);
 	}
 }

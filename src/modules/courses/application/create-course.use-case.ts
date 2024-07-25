@@ -1,16 +1,12 @@
-import { Course } from '../models/course.entity';
+import { Course, CoursePrimitives } from '../models/course.entity';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseResponseDto } from './course.mapper';
-
-export interface CreateCourseDto {
-	title: string;
-}
 
 export class CreateCourse {
 	constructor(private readonly courseRepository: CoursePortRepository) {}
 
-	async run(courseDto: CreateCourseDto): Promise<CourseResponseDto> {
-		const course = Course.create({ title: courseDto.title });
+	async run(courseDto: CoursePrimitives): Promise<CourseResponseDto> {
+		const course = Course.createByPrimitives(courseDto);
 
 		await this.courseRepository.insert(course);
 
