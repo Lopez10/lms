@@ -11,13 +11,13 @@ import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
 import { LessonPrismaRepository } from '../../lessons/infrastructure/lesson.prisma.repository';
 import { CompletionPrismaRepository } from '../../completions/infrastructure/completion.prisma.repository';
 import { CourseService } from '../models/course.service';
-import { ModuleResponseDto } from '../../modules/application/module.mapper';
+import { ModuleDto } from '../../modules/application/module.mapper';
 import { Course, CoursePrimitives } from '../models/course.entity';
 import { GetCoursesUseCase } from '../application/get-courses.use-case';
 
 export interface CourseResponsePopulatedDTO
 	extends CourseResponseWithStatisticsDto {
-	modules: (ModuleResponseDto | ModuleResponsePopulatedDTO)[];
+	modules: (ModuleDto | ModuleResponsePopulatedDTO)[];
 }
 
 interface CourseResponseWithStatisticsDto {

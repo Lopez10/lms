@@ -1,11 +1,11 @@
 import { Id } from '../../../shared';
+import { Module } from '../models/module.entity';
 import { ModulePortRepository } from '../models/module.port.repository';
-import { ModuleResponseDto, ModuleMapper } from './module.mapper';
 
 export class GetModuleByIdUseCase {
 	constructor(private readonly moduleRepository: ModulePortRepository) {}
 
-	async run(id: string): Promise<ModuleResponseDto> {
+	async run(id: string): Promise<Module> {
 		const moduleId = Id.createExisted(id);
 		const module = await this.moduleRepository.getById(moduleId);
 
@@ -13,6 +13,6 @@ export class GetModuleByIdUseCase {
 			throw new Error('Module not found');
 		}
 
-		return ModuleMapper.toDto(module);
+		return module;
 	}
 }

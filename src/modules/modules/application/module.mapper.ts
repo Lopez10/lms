@@ -1,33 +1,33 @@
 import { Id } from '../../../shared';
 import { Module } from '../models/module.entity';
 
-export interface ModuleResponseDto {
+export interface ModuleDto {
 	id: string;
 	title: string;
-	is_root_module: boolean;
-	module_id: string;
-	course_id: string;
+	isRootModule: boolean;
+	moduleId: string;
+	courseId: string;
 }
 
 export class ModuleMapper {
-	static toDomain(moduleDto: ModuleResponseDto): Module {
+	static toDomain(moduleDto: ModuleDto): Module {
 		return Module.create(
 			{
 				title: moduleDto.title,
-				isRootModule: moduleDto.is_root_module,
-				moduleId: Id.createExisted(moduleDto.module_id),
-				courseId: Id.createExisted(moduleDto.course_id),
+				isRootModule: moduleDto.isRootModule,
+				moduleId: Id.createExisted(moduleDto.moduleId),
+				courseId: Id.createExisted(moduleDto.courseId),
 			},
 			Id.createExisted(moduleDto.id),
 		);
 	}
-	static toDto(module: Module): ModuleResponseDto {
+	static toDto(module: Module): ModuleDto {
 		return {
 			id: module.id.value,
 			title: module.props.title,
-			is_root_module: module.props.isRootModule,
-			module_id: module.props.moduleId.value,
-			course_id: module.props.courseId.value,
+			isRootModule: module.props.isRootModule,
+			moduleId: module.props.moduleId.value,
+			courseId: module.props.courseId.value,
 		};
 	}
 }

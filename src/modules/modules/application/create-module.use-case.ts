@@ -1,15 +1,15 @@
 import { Module, ModulePrimitives } from '../models/module.entity';
 import { ModulePortRepository } from '../models/module.port.repository';
-import { ModuleMapper, ModuleResponseDto } from './module.mapper';
+import { ModuleMapper, ModuleDto } from './module.mapper';
 
 export class CreateModuleUseCase {
 	constructor(private readonly moduleRepository: ModulePortRepository) {}
 
-	async run(createModuleDto: ModulePrimitives): Promise<ModuleResponseDto> {
+	async run(createModuleDto: ModulePrimitives): Promise<Module> {
 		const module = Module.createByPrimitives(createModuleDto);
 
 		await this.moduleRepository.insert(module);
 
-		return ModuleMapper.toDto(module);
+		return module;
 	}
 }
