@@ -1,4 +1,3 @@
-import { Id } from '../../../shared';
 import { Module, ModulePrimitives } from '../models/module.entity';
 import { ModulePortRepository } from '../models/module.port.repository';
 import { ModuleMapper, ModuleResponseDto } from './module.mapper';
