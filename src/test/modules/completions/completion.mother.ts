@@ -6,10 +6,10 @@ import { Completion } from '../../../modules/completions/models/Completion';
 
 export class CompletionMother {
 	static create(params: Partial<CompletionDto>): Completion {
-		const completionDto = {
+		const completionDto: CompletionDto = {
 			id: 'completion-id',
-			userId: 'user-id',
-			lessonId: 'lesson-id',
+			user_id: 'user-id',
+			lesson_id: 'lesson-id',
 			...params,
 		};
 
