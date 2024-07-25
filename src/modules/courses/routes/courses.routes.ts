@@ -1,9 +1,7 @@
 import { Router } from 'express';
-import {
-	createCourse,
-	getCourseById,
-} from '../controllers/courses.controllers';
 import { getCourses } from '../controllers/get-courses.controller';
+import { createCourse } from '../controllers/create-course.controller';
+import { getCourseById } from '../controllers/get-course-by-id.controller';
 
 const router = Router();
 
