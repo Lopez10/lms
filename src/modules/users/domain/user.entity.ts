@@ -1,6 +1,8 @@
+import { Email } from './email.value-object';
+
 interface UserProps {
 	name: string;
-	email: string;
+	email: Email;
 }
 
 export interface UserPrimitives {
@@ -19,7 +21,7 @@ export class User {
 	static createByPrimitives(primitives: UserPrimitives): User {
 		return User.create({
 			name: primitives.name,
-			email: primitives.email,
+			email: Email.create(primitives.email),
 		});
 	}
 }
