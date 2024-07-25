@@ -1,6 +1,6 @@
 import { Id, prisma } from '../../../shared';
 import { ModulePortRepository } from '../models/module.port.repository';
-import { Module } from '../models/Module';
+import { Module } from '../models/module.entity';
 import { ModuleMapper } from '../application/module.mapper';
 
 export class ModulePrismaRepository implements ModulePortRepository {

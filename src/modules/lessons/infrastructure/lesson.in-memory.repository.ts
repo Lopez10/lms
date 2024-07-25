@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Module } from '../../modules/models/Module';
+import { Module } from '../../modules/models/module.entity';
 import { Lesson } from '../models/lesson.entity';
 import { LessonPortRepository } from '../models/lesson.port.repository';
 

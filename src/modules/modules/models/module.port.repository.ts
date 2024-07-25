@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Module } from './Module';
+import { Module } from './module.entity';
 
 export interface ModulePortRepository {
 	insert(module: Module): Promise<void>;

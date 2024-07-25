@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Module } from '../models/Module';
+import { Module } from '../models/module.entity';
 import { ModulePortRepository } from '../models/module.port.repository';
 import { ModuleMapper, ModuleResponseDTO } from './module.mapper';
 
