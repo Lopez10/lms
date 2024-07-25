@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Lesson } from './Lesson';
+import { Lesson } from './lesson.entity';
 
 export interface LessonPortRepository {
 	insert(lesson: Lesson): Promise<void>;

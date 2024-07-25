@@ -1,4 +1,4 @@
-import { Lesson } from '../models/Lesson';
+import { Lesson } from '../models/lesson.entity';
 import { LessonPortRepository } from '../models/lesson.port.repository';
 import { LessonMapper, LessonResponseDTO } from './lesson.mapper';
 

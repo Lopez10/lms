@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Lesson } from '../models/Lesson';
+import { Lesson } from '../models/lesson.entity';
 
 export interface LessonResponseDTO {
 	id: string;

@@ -1,6 +1,6 @@
 import { Id } from '../../../shared';
 import { Module } from '../../modules/models/Module';
-import { Lesson } from '../models/Lesson';
+import { Lesson } from '../models/lesson.entity';
 import { LessonPortRepository } from '../models/lesson.port.repository';
 
 export class LessonInMemoryRepository implements LessonPortRepository {

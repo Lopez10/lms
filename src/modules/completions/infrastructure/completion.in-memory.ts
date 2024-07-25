@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Lesson } from '../../lessons/models/Lesson';
+import { Lesson } from '../../lessons/models/lesson.entity';
 import { Module } from '../../modules/models/Module';
 import { Completion } from '../models/completion.entity';
 import { CompletionPortRepository } from '../models/completion.port.repository';
