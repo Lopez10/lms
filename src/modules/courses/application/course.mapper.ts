@@ -1,13 +1,13 @@
 import { Id } from '../../../shared';
 import { Course } from '../models/course.entity';
 
-export interface CourseResponseDTO {
+export interface CourseResponseDto {
 	id: string;
 	title: string;
-	completion: CompletionDTO;
+	statistics: StatisticsDto;
 }
 
-export interface CompletionDTO {
+export interface StatisticsDto {
 	total_lessons: number;
 	completed_lessons: number;
 	percentage: number;
@@ -21,12 +21,12 @@ export interface CourseDto {
 export class CourseMapper {
 	static toDto(
 		course: Course,
-		completionDto: CompletionDTO,
-	): CourseResponseDTO {
+		completionDto: StatisticsDto,
+	): CourseResponseDto {
 		return {
 			id: course.id.value,
 			title: course.props.title,
-			completion: {
+			statistics: {
 				total_lessons: completionDto.total_lessons,
 				completed_lessons: completionDto.completed_lessons,
 				percentage: completionDto.percentage,

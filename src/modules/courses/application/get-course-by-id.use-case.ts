@@ -3,9 +3,9 @@ import { NotFoundException } from '../../../shared/application/exceptions';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
 import {
-	CompletionDTO,
+	StatisticsDto,
 	CourseMapper,
-	CourseResponseDTO,
+	CourseResponseDto,
 } from './course.mapper';
 
 export class GetCourseByIdUseCase {
@@ -13,7 +13,7 @@ export class GetCourseByIdUseCase {
 		private readonly courseRepository: CoursePortRepository,
 		private readonly courseService: CourseService,
 	) {}
-	async run(id: string): Promise<CourseResponseDTO> {
+	async run(id: string): Promise<CourseResponseDto> {
 		const courseId = Id.createExisted(id);
 		const course = await this.courseRepository.getById(courseId);
 
@@ -27,7 +27,7 @@ export class GetCourseByIdUseCase {
 		const completedLessons =
 			await this.courseService.getCompletedLessonsCount(courseId);
 
-		const completionDto: CompletionDTO = {
+		const completionDto: StatisticsDto = {
 			total_lessons: totalLessons,
 			completed_lessons: completedLessons,
 			percentage: progress,

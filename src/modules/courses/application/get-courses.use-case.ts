@@ -2,9 +2,9 @@ import { Course } from '../models/course.entity';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
 import {
-	CompletionDTO,
+	StatisticsDto,
 	CourseMapper,
-	CourseResponseDTO,
+	CourseResponseDto,
 } from './course.mapper';
 
 export class GetCoursesUseCase {
@@ -13,7 +13,7 @@ export class GetCoursesUseCase {
 		private readonly courseService: CourseService,
 	) {}
 
-	async run(): Promise<CourseResponseDTO[]> {
+	async run(): Promise<CourseResponseDto[]> {
 		const courses = await this.courseRepository.getAll();
 
 		const courseResponses = await Promise.all(
@@ -24,7 +24,7 @@ export class GetCoursesUseCase {
 					this.courseService.getCompletedLessonsCount(course.id),
 				]);
 
-				const completionDto: CompletionDTO = {
+				const completionDto: StatisticsDto = {
 					total_lessons: totalLessons,
 					completed_lessons: completedLessons,
 					percentage: progress,

@@ -16,9 +16,9 @@ import { LessonPrismaRepository } from '../../lessons/infrastructure/lesson.pris
 import { CompletionPrismaRepository } from '../../completions/infrastructure/completion.prisma.repository';
 import { CourseService } from '../models/course.service';
 import { ModuleResponseDTO } from '../../modules/application/module.mapper';
-import { CourseResponseDTO } from '../application/course.mapper';
+import { CourseResponseDto } from '../application/course.mapper';
 
-export interface CourseResponsePopulatedDTO extends CourseResponseDTO {
+export interface CourseResponsePopulatedDTO extends CourseResponseDto {
 	modules: (ModuleResponseDTO | ModuleResponsePopulatedDTO)[];
 }
 
