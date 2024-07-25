@@ -12,7 +12,7 @@ export class GetLessonsUseCase {
 		return lessons.map((lesson) => ({
 			id: lesson.id.value,
 			title: lesson.props.title,
-			module_id: lesson.props.moduleId,
+			module_id: lesson.props.moduleId.value,
 			is_completed: false,
 		}));
 	}
