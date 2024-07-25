@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Completion } from './Completion';
+import { Completion } from './completion.entity';
 
 export interface CompletionPortRepository {
 	insert(completion: Completion): Promise<void>;

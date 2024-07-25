@@ -1,5 +1,5 @@
 import { Id, prisma } from '../../../shared';
-import { Completion } from '../models/Completion';
+import { Completion } from '../models/completion.entity';
 import { CompletionPortRepository } from '../models/completion.port.repository';
 
 export class CompletionPrismaRepository implements CompletionPortRepository {

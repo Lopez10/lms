@@ -1,7 +1,7 @@
 import { Id } from '../../../shared';
 import { Lesson } from '../../lessons/models/Lesson';
 import { Module } from '../../modules/models/Module';
-import { Completion } from '../models/Completion';
+import { Completion } from '../models/completion.entity';
 import { CompletionPortRepository } from '../models/completion.port.repository';
 
 export class CompletionInMemoryRepository implements CompletionPortRepository {

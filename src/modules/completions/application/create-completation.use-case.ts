@@ -1,4 +1,4 @@
-import { Completion, CompletionPrimitives } from '../models/Completion';
+import { Completion, CompletionPrimitives } from '../models/completion.entity';
 import { CompletionPortRepository } from '../models/completion.port.repository';
 import { CompletionDto, CompletionMapper } from './completion.mapper';
 
