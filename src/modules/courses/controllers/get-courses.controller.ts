@@ -6,17 +6,17 @@ import { GetCoursesUseCase } from '../application/get-courses.use-case';
 import { CoursePrismaRepository } from '../infrastructure/course.prisma.repository';
 import { Course } from '../domain/course.entity';
 import { CourseService } from '../domain/course.service';
-
-const coursePrismaRepository = new CoursePrismaRepository();
-const lessonRepository = new LessonPrismaRepository();
-const completionRepository = new CompletionPrismaRepository();
-
-const courseService = new CourseService(completionRepository, lessonRepository);
+import { COURSES_DEPENDENCIES } from './course.dependencies';
 
 export const getCourses = async (req: Request, res: Response) => {
-	const getCoursesUseCase = new GetCoursesUseCase(coursePrismaRepository);
+	const getCoursesUseCase = new GetCoursesUseCase(
+		COURSES_DEPENDENCIES.coursePrismaRepository,
+	);
 
 	const courses = await getCoursesUseCase.run();
+
+	const courseService = COURSES_DEPENDENCIES.courseService;
+
 	const responseCoursesDto = await Promise.all(
 		courses.map(async (course: Course) => {
 			const [progress, totalLessons, completedLessons] = await Promise.all([
