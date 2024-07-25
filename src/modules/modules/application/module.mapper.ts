@@ -1,7 +1,7 @@
 import { Id } from '../../../shared';
 import { Module } from '../models/module.entity';
 
-export interface ModuleResponseDTO {
+export interface ModuleResponseDto {
 	id: string;
 	title: string;
 	is_root_module: boolean;
@@ -10,7 +10,7 @@ export interface ModuleResponseDTO {
 }
 
 export class ModuleMapper {
-	static toDomain(moduleDto: ModuleResponseDTO): Module {
+	static toDomain(moduleDto: ModuleResponseDto): Module {
 		return Module.create(
 			{
 				title: moduleDto.title,
@@ -21,7 +21,7 @@ export class ModuleMapper {
 			Id.createExisted(moduleDto.id),
 		);
 	}
-	static toDto(module: Module): ModuleResponseDTO {
+	static toDto(module: Module): ModuleResponseDto {
 		return {
 			id: module.id.value,
 			title: module.props.title,

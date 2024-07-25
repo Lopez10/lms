@@ -1,29 +1,13 @@
 import { Id } from '../../../shared';
-import { Module } from '../models/module.entity';
+import { Module, ModulePrimitives } from '../models/module.entity';
 import { ModulePortRepository } from '../models/module.port.repository';
-import { ModuleMapper, ModuleResponseDTO } from './module.mapper';
-
-export interface CreateModuleDto {
-	title: string;
-	isRootModule: boolean;
-	moduleId?: string;
-	courseId: string;
-}
+import { ModuleMapper, ModuleResponseDto } from './module.mapper';
 
 export class CreateModuleUseCase {
 	constructor(private readonly moduleRepository: ModulePortRepository) {}
 
-	async run(createModuleDto: CreateModuleDto): Promise<ModuleResponseDTO> {
-		const moduleId = createModuleDto.moduleId
-			? Id.createExisted(createModuleDto.moduleId)
-			: undefined;
-
-		const module = Module.create({
-			title: createModuleDto.title,
-			isRootModule: createModuleDto.isRootModule,
-			moduleId,
-			courseId: Id.createExisted(createModuleDto.courseId),
-		});
+	async run(createModuleDto: ModulePrimitives): Promise<ModuleResponseDto> {
+		const module = Module.createByPrimitives(createModuleDto);
 
 		await this.moduleRepository.insert(module);
 

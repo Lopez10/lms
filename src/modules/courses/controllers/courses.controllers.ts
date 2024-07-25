@@ -15,11 +15,11 @@ import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
 import { LessonPrismaRepository } from '../../lessons/infrastructure/lesson.prisma.repository';
 import { CompletionPrismaRepository } from '../../completions/infrastructure/completion.prisma.repository';
 import { CourseService } from '../models/course.service';
-import { ModuleResponseDTO } from '../../modules/application/module.mapper';
+import { ModuleResponseDto } from '../../modules/application/module.mapper';
 import { CourseResponseDto } from '../application/course.mapper';
 
 export interface CourseResponsePopulatedDTO extends CourseResponseDto {
-	modules: (ModuleResponseDTO | ModuleResponsePopulatedDTO)[];
+	modules: (ModuleResponseDto | ModuleResponsePopulatedDTO)[];
 }
 
 const coursePrismaRepository = new CoursePrismaRepository();

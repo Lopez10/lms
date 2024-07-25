@@ -1,12 +1,12 @@
 import {
 	ModuleMapper,
-	ModuleResponseDTO,
+	ModuleResponseDto,
 } from '../../../modules/modules/application/module.mapper';
 import { Module } from '../../../modules/modules/models/module.entity';
 
 export class ModuleMother {
-	static create(params: Partial<ModuleResponseDTO>): Module {
-		const moduleDto: ModuleResponseDTO = {
+	static create(params: Partial<ModuleResponseDto>): Module {
+		const moduleDto: ModuleResponseDto = {
 			id: 'module-id',
 			title: 'module-title',
 			is_root_module: false,
