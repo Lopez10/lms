@@ -1,13 +1,6 @@
 import { Id } from '../../../shared';
 import { Lesson } from '../models/lesson.entity';
 
-export interface LessonResponseDto {
-	id: string;
-	title: string;
-	module_id: string;
-	is_completed: boolean;
-}
-
 export interface LessonDto {
 	id: string;
 	name: string;
