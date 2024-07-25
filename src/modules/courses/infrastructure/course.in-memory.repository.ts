@@ -1,5 +1,5 @@
 import { Id } from '../../../shared';
-import { Course } from '../models/Course';
+import { Course } from '../models/course.entity';
 import { CoursePortRepository } from '../models/course.port.repository';
 
 export class CourseInMemoryRepository implements CoursePortRepository {

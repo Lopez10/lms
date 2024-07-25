@@ -1,5 +1,5 @@
 import { Id, InsertException } from '../../../shared';
-import { Course } from '../models/Course';
+import { Course } from '../models/course.entity';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { prisma } from '../../../shared';
 

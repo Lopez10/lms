@@ -1,4 +1,4 @@
-import { Course } from '../models/Course';
+import { Course } from '../models/course.entity';
 import { CoursePortRepository } from '../models/course.port.repository';
 import { CourseService } from '../models/course.service';
 import {
