@@ -20,7 +20,7 @@ export class LessonPrismaRepository implements LessonPortRepository {
 		const totalLessons = await prisma.lesson.count({
 			where: {
 				Module: {
-					courseId: courseId.value,
+					course_id: courseId.value,
 				},
 			},
 		});
