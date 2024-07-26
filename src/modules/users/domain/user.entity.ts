@@ -1,3 +1,4 @@
+import { Entity, Id } from '../../../shared';
 import { Email } from './email.value-object';
 
 interface UserProps {
@@ -10,15 +11,17 @@ export interface UserPrimitives {
 	email: string;
 }
 
-export class User {
-	private constructor(private props: UserProps) {}
+export class User extends Entity<UserProps> {
+	private constructor(props: UserProps, id?: Id) {
+		super(props, id);
+	}
 
-	static create(props: UserProps): User {
-		const user = new User(props);
+	static create(props: UserProps, id?: Id): User {
+		const user = new User(props, id);
 		return user;
 	}
 
-	static createByPrimitives(primitives: UserPrimitives): User {
+	static createByPrimitives(primitives: UserPrimitives, id?: string): User {
 		return User.create({
 			name: primitives.name,
 			email: Email.create(primitives.email),
