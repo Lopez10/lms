@@ -22,9 +22,12 @@ export class User extends Entity<UserProps> {
 	}
 
 	static createByPrimitives(primitives: UserPrimitives, id?: string): User {
-		return User.create({
-			name: primitives.name,
-			email: Email.create(primitives.email),
-		});
+		return User.create(
+			{
+				name: primitives.name,
+				email: Email.create(primitives.email),
+			},
+			id ? Id.createExisted(id) : Id.generateId(),
+		);
 	}
 }
