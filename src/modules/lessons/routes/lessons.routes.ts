@@ -7,6 +7,6 @@ const router = Router();
 
 router.route('/').get(getLessons).post(createLesson);
 
-router.route('/:lessonId').get(getLessonById);
+router.route('/:lessonId/:userId').get(getLessonById);
 
 export default router;
