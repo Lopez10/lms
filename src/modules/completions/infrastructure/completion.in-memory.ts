@@ -28,4 +28,8 @@ export class CompletionInMemoryRepository implements CompletionPortRepository {
 			lessonIds.includes(completion.props.lessonId),
 		).length;
 	}
+
+	getByLessonAndUser(id: Id): Promise<Completion | null> {
+		throw new Error('Method not implemented.');
+	}
 }

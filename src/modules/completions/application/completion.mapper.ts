@@ -3,16 +3,16 @@ import { Completion } from '../domain/completion.entity';
 
 export interface CompletionDto {
 	id: string;
-	lesson_id: string;
-	user_id: string;
+	lessonId: string;
+	userId: string;
 }
 
 export class CompletionMapper {
 	static toDomain(completionDto: CompletionDto): Completion {
 		return Completion.create(
 			{
-				userId: Id.createExisted(completionDto.user_id),
-				lessonId: Id.createExisted(completionDto.lesson_id),
+				userId: Id.createExisted(completionDto.userId),
+				lessonId: Id.createExisted(completionDto.lessonId),
 			},
 			Id.createExisted(completionDto.id),
 		);
@@ -21,8 +21,8 @@ export class CompletionMapper {
 	static toDto(completion: Completion): CompletionDto {
 		return {
 			id: completion.id.value,
-			lesson_id: completion.props.lessonId.value,
-			user_id: completion.props.userId.value,
+			lessonId: completion.props.lessonId.value,
+			userId: completion.props.userId.value,
 		};
 	}
 }
