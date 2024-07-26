@@ -1,4 +1,5 @@
 import { Id } from '../../../shared';
+import { NotFoundException } from '../../../shared/application/exceptions';
 import { Module } from '../domain/module.entity';
 import { ModulePortRepository } from '../domain/module.port.repository';
 
@@ -10,7 +11,7 @@ export class GetModuleByIdUseCase {
 		const module = await this.moduleRepository.getById(moduleId);
 
 		if (!module) {
-			throw new Error('Module not found');
+			throw new NotFoundException('Module not found');
 		}
 
 		return module;
