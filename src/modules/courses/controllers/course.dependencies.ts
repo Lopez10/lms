@@ -1,24 +1,14 @@
 import { CoursePrismaRepository } from '../infrastructure/course.prisma.repository';
 import { CourseService } from '../domain/course.service';
 import { LESSON_DEPENDENCIES } from '../../lessons/controllers/lesson.dependencies';
-import { MODULE_DEPENDENCIES } from '../../modules/controllers/module.dependencies';
+import { COMPLETION_DEPENDENCIES } from '../../completions/controllers/completion.dependencies';
 
 const coursePrismaRepository = new CoursePrismaRepository();
 
 const courseService = new CourseService(
-	MODULE_DEPENDENCIES.completionPrismaRepository,
+	COMPLETION_DEPENDENCIES.completionPrismaRepository,
 	LESSON_DEPENDENCIES.lessonRepository,
 );
-
-export interface CourseResponseWithStatisticsDto {
-	id: string;
-	title: string;
-	statistics: {
-		total_lessons: number;
-		completed_lessons: number;
-		percentage: number;
-	};
-}
 
 export const COURSES_DEPENDENCIES = {
 	coursePrismaRepository,

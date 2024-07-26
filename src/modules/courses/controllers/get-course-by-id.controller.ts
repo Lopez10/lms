@@ -1,37 +1,27 @@
 import { Request, Response } from 'express';
 import { sendOk } from '../../../shared';
 import { GetCourseByIdUseCase } from '../application/get-course-by-id.use-case';
-import {
-	CourseResponseWithStatisticsDto,
-	COURSES_DEPENDENCIES,
-} from './course.dependencies';
+import { COURSES_DEPENDENCIES } from './course.dependencies';
+import { GetStatisticsService } from '../application/get-statistics.service';
+import { CourseMapper } from '../application/course.mapper';
 
 export const getCourseById = async (req: Request, res: Response) => {
 	const getCourseByIdUseCase = new GetCourseByIdUseCase(
 		COURSES_DEPENDENCIES.coursePrismaRepository,
 	);
-
-	const courseService = COURSES_DEPENDENCIES.courseService;
+	const getStatisticsService = new GetStatisticsService(
+		COURSES_DEPENDENCIES.courseService,
+	);
 
 	const { id } = req.params;
 
 	const course = await getCourseByIdUseCase.run(id);
+	const statistics = await getStatisticsService.run(course.id);
 
-	const progress = await courseService.getCourseProgress(course.id);
-	const totalLessons = await courseService.getTotalLessonsCount(course.id);
-	const completedLessons = await courseService.getCompletedLessonsCount(
-		course.id,
+	const responseCourseDto = CourseMapper.toDtoWithStatistics(
+		course,
+		statistics,
 	);
-
-	const responseCourseDto: CourseResponseWithStatisticsDto = {
-		id: course.id.value,
-		title: course.id.value,
-		statistics: {
-			total_lessons: totalLessons,
-			completed_lessons: completedLessons,
-			percentage: progress,
-		},
-	};
 
 	return sendOk(res, responseCourseDto);
 };
