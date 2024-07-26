@@ -1,9 +1,7 @@
 import { Router } from 'express';
-import {
-	createLesson,
-	getLessonById,
-	getLessons,
-} from '../controllers/lesson.dependencies';
+import { createLesson } from '../controllers/create-lesson.controller';
+import { getLessonById } from '../controllers/get-lesson-by-id.controller';
+import { getLessons } from '../controllers/get-lessons.controller';
 
 const router = Router();
 
