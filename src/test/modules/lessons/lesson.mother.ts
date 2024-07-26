@@ -7,9 +7,9 @@ import { Lesson } from '../../../modules/lessons/domain/lesson.entity';
 export class LessonMother {
 	static create(params: Partial<LessonDto>): Lesson {
 		const lessonDto: LessonDto = {
-			id: 'lesson-id',
+			id: 'lessonId123',
 			name: 'lesson-name',
-			moduleId: 'module-id',
+			moduleId: 'moduleId123',
 			...params,
 		};
 

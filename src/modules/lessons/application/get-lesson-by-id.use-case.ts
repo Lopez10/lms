@@ -1,4 +1,5 @@
 import { Id } from '../../../shared';
+import { NotFoundException } from '../../../shared/application/exceptions';
 import { Lesson } from '../domain/lesson.entity';
 import { LessonPortRepository } from '../domain/lesson.port.repository';
 
@@ -10,7 +11,7 @@ export class GetLessonByIdUseCase {
 		const lesson = await this.lessonRepository.getById(lessonId);
 
 		if (!lesson) {
-			throw new Error('Lesson not found');
+			throw new NotFoundException('Lesson not found');
 		}
 
 		return lesson;
