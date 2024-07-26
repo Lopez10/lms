@@ -9,7 +9,7 @@ export class UserMother {
 		const userDto: UserDto = {
 			id: 'userId12345',
 			name: 'user-name',
-			email: 'user-email',
+			email: 'email@example.com',
 			...params,
 		};
 
