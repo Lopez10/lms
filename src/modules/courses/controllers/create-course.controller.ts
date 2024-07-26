@@ -2,10 +2,14 @@ import { Request, Response } from 'express';
 import { CreateCourseUseCase } from '../application/create-course.use-case';
 import { CoursePrimitives } from '../domain/course.entity';
 import { sendBadRequest, sendCreated } from '../../../shared';
-import {
-	CourseResponseWithStatisticsDto,
-	COURSES_DEPENDENCIES,
-} from './course.dependencies';
+import { COURSES_DEPENDENCIES } from './course.dependencies';
+import { CourseMapper } from '../application/course.mapper';
+
+const EMPTY_STATISTICS = {
+	completedLessons: 0,
+	totalLessons: 0,
+	percentage: 0,
+};
 
 export const createCourse = async (req: Request, res: Response) => {
 	try {
@@ -15,15 +19,10 @@ export const createCourse = async (req: Request, res: Response) => {
 		);
 
 		const courseCreated = await createCourseUseCase.run(createCourseDto);
-		const responseCourseDto: CourseResponseWithStatisticsDto = {
-			id: courseCreated.id.value,
-			title: courseCreated.id.value,
-			statistics: {
-				total_lessons: 0,
-				completed_lessons: 0,
-				percentage: 0,
-			},
-		};
+		const responseCourseDto = CourseMapper.toDtoWithStatistics(
+			courseCreated,
+			EMPTY_STATISTICS,
+		);
 
 		return sendCreated(res, {
 			message: 'Course created successfully',
