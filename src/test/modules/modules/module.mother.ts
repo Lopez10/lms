@@ -7,11 +7,11 @@ import { Module } from '../../../modules/modules/domain/module.entity';
 export class ModuleMother {
 	static create(params: Partial<ModuleDto>): Module {
 		const moduleDto: ModuleDto = {
-			id: 'module-id',
+			id: 'moduleId123',
 			title: 'module-title',
 			isRootModule: false,
-			moduleId: 'module-id',
-			courseId: 'course-id',
+			moduleId: 'moduleId123',
+			courseId: 'courseId123',
 			...params,
 		};
 
