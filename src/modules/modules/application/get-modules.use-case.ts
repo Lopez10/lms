@@ -1,7 +1,7 @@
 import { Module } from '../domain/module.entity';
 import { ModulePortRepository } from '../domain/module.port.repository';
 
-export class GetModules {
+export class GetModulesUseCase {
 	constructor(private readonly moduleRepository: ModulePortRepository) {}
 
 	async run(): Promise<Module[]> {

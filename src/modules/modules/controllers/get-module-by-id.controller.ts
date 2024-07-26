@@ -1,6 +1,18 @@
 import { Request, Response } from 'express';
-import { sendMethodNotImplemented } from '../../../shared';
+import { sendOk } from '../../../shared';
+import { GetModuleByIdUseCase } from '../application/get-module-by-id.use-case';
+import { MODULE_DEPENDENCIES } from './module.dependencies';
+import { ModuleMapper } from '../application/module.mapper';
 
 export const getModuleById = async (req: Request, res: Response) => {
-	return sendMethodNotImplemented(res);
+	const getModuleByIdUseCase = new GetModuleByIdUseCase(
+		MODULE_DEPENDENCIES.modulePrismaRepository,
+	);
+
+	const { id } = req.params;
+
+	const module = await getModuleByIdUseCase.run(id);
+	const responseModuleDto = ModuleMapper.toDto(module);
+
+	return sendOk(res, responseModuleDto);
 };
