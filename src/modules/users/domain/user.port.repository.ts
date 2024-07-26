@@ -3,5 +3,5 @@ import { User } from './user.entity';
 
 export interface UserPortRepository {
 	getById(id: Id): Promise<User | null>;
-	create(user: User): Promise<void>;
+	insert(user: User): Promise<void>;
 }
