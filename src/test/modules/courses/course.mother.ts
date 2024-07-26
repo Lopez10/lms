@@ -7,7 +7,7 @@ import { Course } from '../../../modules/courses/domain/course.entity';
 export class CourseMother {
 	static create(params: Partial<CourseDto>): Course {
 		const courseDto: CourseDto = {
-			id: 'course-id',
+			id: 'courseId123',
 			title: 'course-title',
 			...params,
 		};
