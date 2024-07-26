@@ -17,7 +17,15 @@ export class UserPrismaRepository implements UserPortRepository {
 
 		return UserMapper.toDomain(user);
 	}
-	create(user: User): Promise<void> {
-		throw new Error('Method not implemented.');
+	async insert(user: User): Promise<void> {
+		const userDb = UserMapper.toDto(user);
+
+		try {
+			await prisma.user.create({
+				data: userDb,
+			});
+		} catch (error) {
+			throw new Error('Error inserting user');
+		}
 	}
 }
