@@ -6,7 +6,7 @@ import { MODULE_DEPENDENCIES } from '../../modules/controllers/module.dependenci
 const coursePrismaRepository = new CoursePrismaRepository();
 
 const courseService = new CourseService(
-	MODULE_DEPENDENCIES.completionRepository,
+	MODULE_DEPENDENCIES.completionPrismaRepository,
 	LESSON_DEPENDENCIES.lessonRepository,
 );
 

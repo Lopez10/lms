@@ -1,7 +1,7 @@
-import { CompletionPrismaRepository } from '../../completions/infrastructure/completion.prisma.repository';
+import { ModulePrismaRepository } from '../infrastructure/module.prisma.repository';
 
-const completionRepository = new CompletionPrismaRepository();
+const modulePrismaRepository = new ModulePrismaRepository();
 
 export const MODULE_DEPENDENCIES = {
-	completionRepository,
+	modulePrismaRepository,
 };
