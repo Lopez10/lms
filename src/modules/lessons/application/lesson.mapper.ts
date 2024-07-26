@@ -25,4 +25,11 @@ export class LessonMapper {
 			Id.createExisted(lesson.id),
 		);
 	}
+
+	static toDtoWithCompletion(lesson: Lesson, isCompleted: boolean) {
+		return {
+			...LessonMapper.toDto(lesson),
+			isCompleted,
+		};
+	}
 }

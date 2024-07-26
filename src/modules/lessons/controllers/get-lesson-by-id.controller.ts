@@ -12,7 +12,17 @@ export const getLessonById = async (req: Request, res: Response) => {
 	const { id } = req.params;
 
 	const lesson = await getLessonByIdUseCase.run(id);
-	const responseLessonDto = LessonMapper.toDto(lesson);
+	const isLessonCompleted =
+		await LESSON_DEPENDENCIES.getLessonCompleteService.run(
+			lesson.id,
+			// ToDo: Modify with user id
+			lesson.id,
+		);
+
+	const responseLessonDto = LessonMapper.toDtoWithCompletion(
+		lesson,
+		isLessonCompleted,
+	);
 
 	return sendOk(res, responseLessonDto);
 };
