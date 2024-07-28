@@ -1,9 +1,7 @@
 import { Router } from 'express';
-import {
-	createModule,
-	getModuleById,
-	getModules,
-} from '../controllers/module.dependencies';
+import { createModule } from '../controllers/create-module.controller';
+import { getModuleById } from '../controllers/get-module-by-id.controller';
+import { getModules } from '../controllers/get-modules.controller';
 
 const router = Router();
 

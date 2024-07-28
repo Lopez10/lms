@@ -17,17 +17,17 @@ model Course {
 }
 
 model Module {
-  id             String   @id @default(uuid())
-  title          String
-  is_root_module Boolean  @default(false)
-  course_id      String
-  module_id      String
-  submodules     Module[] @relation("Submodules")
-  parentModule   Module?  @relation("Submodules", fields: [module_id], references: [id])
-  Course         Course   @relation(fields: [course_id], references: [id])
-  Lesson         Lesson[]
+  id           String   @id @default(uuid())
+  title        String
+  isRootModule Boolean  @default(false)
+  courseId     String
+  moduleId     String
+  submodules   Module[] @relation("Submodules")
+  parentModule Module?  @relation("Submodules", fields: [moduleId], references: [id])
+  Course       Course   @relation(fields: [courseId], references: [id])
+  Lesson       Lesson[]
 
-  @@index([course_id])
+  @@index([courseId])
 }
 
 model Lesson {

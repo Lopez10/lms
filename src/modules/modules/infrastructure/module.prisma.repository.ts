@@ -2,10 +2,11 @@ import { Id, prisma } from '../../../shared';
 import { ModulePortRepository } from '../domain/module.port.repository';
 import { Module } from '../domain/module.entity';
 import { ModuleMapper } from '../application/module.mapper';
+import { Module as ModuleDb } from '@prisma/client';
 
 export class ModulePrismaRepository implements ModulePortRepository {
 	async insert(module: Module): Promise<void> {
-		const moduleDb = ModuleMapper.toDto(module);
+		const moduleDb: ModuleDb = ModuleMapper.toDto(module);
 		await prisma.module.create({
 			data: moduleDb,
 		});
