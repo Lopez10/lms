@@ -33,4 +33,28 @@ describe('lesson complete service test', () => {
 		// THEN
 		expect(isLessonCompleted).toBe(true);
 	});
+
+	it(`
+		GIVEN there is a module with a lesson and the lesson is not completed 
+		WHEN the service is called to check if the lesson is completed
+		THEN I receive false
+	`, async () => {
+		const completionRepository = new CompletionInMemoryRepository();
+		const service = new LessonCompleteService(completionRepository);
+		const lessonId = 'lessonId123';
+
+		// GIVEN
+		completionRepository.insertModule(
+			ModuleMother.create({ id: 'moduleId123' }),
+		);
+		completionRepository.insertLesson(LessonMother.create({ id: lessonId }));
+
+		// WHEN
+		const isLessonCompleted = await service.isLessonCompleted(
+			Id.createExisted(lessonId),
+		);
+
+		// THEN
+		expect(isLessonCompleted).toBe(false);
+	});
 });
