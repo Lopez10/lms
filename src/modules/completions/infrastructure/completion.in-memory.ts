@@ -16,17 +16,26 @@ export class CompletionInMemoryRepository implements CompletionPortRepository {
 	}
 
 	async countCompletedLessonByCourseId(courseId: Id): Promise<number> {
-		const moduleIds = this.modules
-			.filter((module) => module.props.courseId.equals(courseId))
-			.map((module) => module.id);
+		const moduleIds: Id[] = this.modules.reduce((ids: Id[], module) => {
+			if (module.props.courseId.equals(courseId)) {
+				ids.push(module.id);
+			}
+			return ids;
+		}, []);
 
-		const lessonIds = this.lessons
-			.filter((lesson) => moduleIds.includes(lesson.props.moduleId))
-			.map((lesson) => lesson.id);
+		const lessonIds = this.lessons.reduce((ids: Id[], lesson) => {
+			if (moduleIds.some((id) => id.equals(lesson.props.moduleId))) {
+				ids.push(lesson.id);
+			}
+			return ids;
+		}, []);
 
-		return this.completions.filter((completion) =>
-			lessonIds.includes(completion.props.lessonId),
-		).length;
+		return this.completions.reduce((count: number, completion) => {
+			if (lessonIds.some((id) => id.equals(completion.props.lessonId))) {
+				count++;
+			}
+			return count;
+		}, 0);
 	}
 
 	getByLessonAndUser(id: Id): Promise<Completion | null> {
