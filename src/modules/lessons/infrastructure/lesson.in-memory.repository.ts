@@ -28,8 +28,15 @@ export class LessonInMemoryRepository implements LessonPortRepository {
 			.filter((module) => module.props.courseId.equals(courseId))
 			.map((module) => module.id);
 
-		return this.lessons.filter((lesson) =>
-			moduleIds.includes(lesson.props.moduleId),
-		).length;
+		return this.lessons.reduce((count, lesson) => {
+			const hasMatchingModuleId = moduleIds.some((id) =>
+				id.equals(lesson.props.moduleId),
+			);
+			return hasMatchingModuleId ? count + 1 : count;
+		}, 0);
+	}
+
+	insertModule(module: Module): void {
+		this.modules.push(module);
 	}
 }
