@@ -8,8 +8,8 @@ export class CompletionMother {
 	static create(params: Partial<CompletionDto>): Completion {
 		const completionDto: CompletionDto = {
 			id: 'completion1',
-			userId: 'user-id',
-			lessonId: 'lesson-id',
+			userId: 'userId12345',
+			lessonId: 'lessonId123',
 			...params,
 		};
 

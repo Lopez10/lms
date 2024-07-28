@@ -6,9 +6,9 @@ export class LessonCompleteService {
 		private readonly completionRepository: CompletionPortRepository,
 	) {}
 
-	async isLessonCompleted(lessonId: Id, userId: Id): Promise<boolean> {
+	async isLessonCompleted(lessonId: Id): Promise<boolean> {
 		const lessonCompletedFound =
-			await this.completionRepository.getByLessonAndUser(lessonId, userId);
+			await this.completionRepository.getByLessonId(lessonId);
 
 		return !!lessonCompletedFound;
 	}

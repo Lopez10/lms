@@ -4,14 +4,10 @@ import { Completion } from '../domain/completion.entity';
 import { CompletionPortRepository } from '../domain/completion.port.repository';
 
 export class CompletionPrismaRepository implements CompletionPortRepository {
-	async getByLessonAndUser(
-		lessonId: Id,
-		userId: Id,
-	): Promise<Completion | null> {
+	async getByLessonId(lessonId: Id): Promise<Completion | null> {
 		const completion = await prisma.completion.findFirst({
 			where: {
 				lessonId: lessonId.value,
-				userId: userId.value,
 			},
 		});
 

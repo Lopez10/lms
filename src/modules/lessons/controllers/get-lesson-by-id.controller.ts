@@ -9,11 +9,11 @@ export const getLessonById = async (req: Request, res: Response) => {
 		LESSON_DEPENDENCIES.lessonRepository,
 	);
 
-	const { lessonId, userId } = req.params;
+	const { lessonId } = req.params;
 
 	const lesson = await getLessonByIdUseCase.run(lessonId);
 	const isLessonCompleted =
-		await LESSON_DEPENDENCIES.getLessonCompleteService.run(lessonId, userId);
+		await LESSON_DEPENDENCIES.getLessonCompleteService.run(lessonId);
 
 	const responseLessonDto = LessonMapper.toDtoWithCompletion(
 		lesson,

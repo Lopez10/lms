@@ -33,7 +33,7 @@ export class Id extends ValueObject<IdProps> {
 
 	public static createExisted(id: string): Id {
 		if (id.length !== CODESIZE) {
-			throw new InvalidLength('Invalid id length');
+			throw new InvalidLength(`Invalid id length: ${id}`);
 		}
 
 		for (let i = 0; i < id.length; i += 1) {

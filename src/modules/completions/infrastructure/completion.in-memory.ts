@@ -38,8 +38,12 @@ export class CompletionInMemoryRepository implements CompletionPortRepository {
 		}, 0);
 	}
 
-	getByLessonAndUser(id: Id): Promise<Completion | null> {
-		throw new Error('Method not implemented.');
+	getByLessonId(lessonId: Id): Promise<Completion | null> {
+		const completion = this.completions.find((c) =>
+			c.props.lessonId.equals(lessonId),
+		);
+
+		return Promise.resolve(completion || null);
 	}
 
 	insertLesson(lesson: Lesson): Promise<void> {
