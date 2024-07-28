@@ -25,7 +25,8 @@
 				"noForEach": "off"
 			},
 			"style": {
-				"useImportType": "off"
+				"useImportType": "off",
+				"noParameterAssign": "off"
 			}
 		}
 	},
