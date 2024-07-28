@@ -1,7 +1,7 @@
-import { GetCourseByIdUseCase } from '../../../modules/courses/application/get-course-by-id.use-case';
-import { CourseInMemoryRepository } from '../../../modules/courses/infrastructure/course.in-memory.repository';
-import { NotFoundException } from '../../../shared/application/exceptions';
-import { CourseMother } from './course.mother';
+import { GetCourseByIdUseCase } from '../../../../modules/courses/application/get-course-by-id.use-case';
+import { CourseInMemoryRepository } from '../../../../modules/courses/infrastructure/course.in-memory.repository';
+import { NotFoundException } from '../../../../shared/application/exceptions';
+import { CourseMother } from '../course.mother';
 
 describe('get course by id use case', () => {
 	it(`

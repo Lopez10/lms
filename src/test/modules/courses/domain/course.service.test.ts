@@ -3,8 +3,7 @@ import { CourseService } from '../../../../modules/courses/domain/course.service
 import { LessonInMemoryRepository } from '../../lessons/infrastructure/lesson.in-memory.repository';
 import { Id } from '../../../../shared';
 import { CompletionMother } from '../../completions/completion.mother';
-import { LessonMother } from '../../lessons/lesson.mother';
-import { ModuleMother } from '../../modules/module.mother';
+import { createCourseModuleExample } from '../create-course-module-example';
 
 describe('course service', () => {
 	it(`
@@ -97,26 +96,3 @@ describe('course service', () => {
 		expect(progress).toBe(100);
 	});
 });
-function createCourseModuleExample(
-	courseId: string,
-	completionRepository: CompletionInMemoryRepository,
-	lessonRepository: LessonInMemoryRepository,
-) {
-	const moduleExample = ModuleMother.create({
-		courseId,
-		id: 'moduleId123',
-		moduleId: 'moduleId123',
-		title: 'module title',
-	});
-	const lessonExample = LessonMother.create({
-		id: 'lessonId123',
-		moduleId: 'moduleId123',
-		name: 'lesson name',
-	});
-
-	completionRepository.insertModule(moduleExample);
-	lessonRepository.insertModule(moduleExample);
-
-	completionRepository.insertLesson(lessonExample);
-	lessonRepository.insert(lessonExample);
-}

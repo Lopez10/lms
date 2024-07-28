@@ -1,5 +1,5 @@
-import { CreateCourseUseCase } from '../../../modules/courses/application/create-course.use-case';
-import { CourseInMemoryRepository } from '../../../modules/courses/infrastructure/course.in-memory.repository';
+import { CreateCourseUseCase } from '../../../../modules/courses/application/create-course.use-case';
+import { CourseInMemoryRepository } from '../../../../modules/courses/infrastructure/course.in-memory.repository';
 
 describe('create course use case', () => {
 	it(`

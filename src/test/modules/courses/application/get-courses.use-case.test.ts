@@ -1,6 +1,6 @@
-import { GetCoursesUseCase } from '../../../modules/courses/application/get-courses.use-case';
-import { CourseInMemoryRepository } from '../../../modules/courses/infrastructure/course.in-memory.repository';
-import { CourseMother } from './course.mother';
+import { GetCoursesUseCase } from '../../../../modules/courses/application/get-courses.use-case';
+import { CourseInMemoryRepository } from '../../../../modules/courses/infrastructure/course.in-memory.repository';
+import { CourseMother } from '../course.mother';
 
 describe('get courses use case', () => {
 	it(`
