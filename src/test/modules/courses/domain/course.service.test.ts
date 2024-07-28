@@ -1,6 +1,6 @@
 import { CompletionInMemoryRepository } from '../../../../modules/completions/infrastructure/completion.in-memory';
 import { CourseService } from '../../../../modules/courses/domain/course.service';
-import { LessonInMemoryRepository } from '../../../../modules/lessons/infrastructure/lesson.in-memory.repository';
+import { LessonInMemoryRepository } from '../../lessons/infrastructure/lesson.in-memory.repository';
 import { Id } from '../../../../shared';
 import { CompletionMother } from '../../completions/completion.mother';
 import { LessonMother } from '../../lessons/lesson.mother';

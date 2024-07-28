@@ -1,7 +1,7 @@
-import { GetLessonByIdUseCase } from '../../../modules/lessons/application/get-lesson-by-id.use-case';
-import { LessonInMemoryRepository } from '../../../modules/lessons/infrastructure/lesson.in-memory.repository';
-import { NotFoundException } from '../../../shared/application/exceptions';
-import { LessonMother } from './lesson.mother';
+import { GetLessonByIdUseCase } from '../../../../modules/lessons/application/get-lesson-by-id.use-case';
+import { LessonInMemoryRepository } from '../infrastructure/lesson.in-memory.repository';
+import { NotFoundException } from '../../../../shared/application/exceptions';
+import { LessonMother } from '../lesson.mother';
 
 describe('get lesson by id use case', () => {
 	it(`

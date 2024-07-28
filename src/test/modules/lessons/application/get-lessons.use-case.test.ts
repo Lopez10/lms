@@ -1,6 +1,6 @@
-import { GetLessonsUseCase } from '../../../modules/lessons/application/get-lessons.use-case';
-import { LessonInMemoryRepository } from '../../../modules/lessons/infrastructure/lesson.in-memory.repository';
-import { LessonMother } from './lesson.mother';
+import { GetLessonsUseCase } from '../../../../modules/lessons/application/get-lessons.use-case';
+import { LessonInMemoryRepository } from '../infrastructure/lesson.in-memory.repository';
+import { LessonMother } from '../lesson.mother';
 
 describe('get lessons use case', () => {
 	it(`

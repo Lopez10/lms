@@ -1,5 +1,5 @@
-import { CreateLessonUseCase } from '../../../modules/lessons/application/create-lesson.use-case';
-import { LessonInMemoryRepository } from '../../../modules/lessons/infrastructure/lesson.in-memory.repository';
+import { CreateLessonUseCase } from '../../../../modules/lessons/application/create-lesson.use-case';
+import { LessonInMemoryRepository } from '../infrastructure/lesson.in-memory.repository';
 
 describe('create lesson use case', () => {
 	it(`
