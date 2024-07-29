@@ -3,13 +3,6 @@ import { createCourse } from './create-courses';
 import { server } from '../../..';
 import { prisma } from '../../../shared';
 
-// beforeAll((done) => {
-// 	server.listen(3124, () => {
-// 		console.log('Test server running on port 3124');
-// 		done();
-// 	});
-// });
-
 describe('GET course by id', () => {
 	beforeEach(async () => {
 		await prisma.course.deleteMany();
