@@ -42,7 +42,7 @@ integration:
 
 	@until docker-compose exec mysql_test mysqladmin ping -h localhost --silent; do \
 		echo "Waiting for MySQL to be ready..."; \
-		sleep 1; \
+		sleep 3; \
 	done
 
 	npm run test:integration
