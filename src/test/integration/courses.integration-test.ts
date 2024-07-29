@@ -2,17 +2,41 @@ import request from 'supertest';
 import { prisma } from '../../shared';
 import apiService, { server } from '../..';
 
-afterAll(async () => {
-	await prisma.$disconnect();
-	server.close();
-});
+describe('GET courses', () => {
+	beforeEach(async () => {
+		await prisma.course.deleteMany();
+	});
 
-describe('IT | Courses', () => {
-	describe('GET /courses', () => {
-		it('should return a list of courses', async () => {
-			const response = await request(apiService).get('/courses');
+	afterAll(async () => {
+		await prisma.$disconnect();
+		server.close();
+	});
 
-			expect(response.status).toBe(200);
-		});
+	it(`
+		GIVEN no courses
+		WHEN I send a GET request to /courses
+		THEN I should receive an empty array	
+	`, async () => {
+		const response = await request(apiService).get('/courses');
+
+		expect(response.status).toBe(200);
+		expect(response.body).toEqual([]);
+	});
+
+	it(`
+		GIVEN a course
+		WHEN I send a GET request to /courses
+		THEN I should receive an array with one course
+	`, async () => {
+		await createCourse({ title: 'Math' });
+
+		const response = await request(apiService).get('/courses');
+
+		expect(response.status).toBe(200);
+		expect(response.body[0]).toHaveProperty('title', 'Math');
 	});
 });
+
+function createCourse(course: { title: string }) {
+	return request(apiService).post('/courses').send(course);
+}
