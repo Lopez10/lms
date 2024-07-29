@@ -18,4 +18,11 @@ export class ModuleInMemoryRepository implements ModulePortRepository {
 	getAll(): Promise<Module[]> {
 		return Promise.resolve(this.modules);
 	}
+
+	update(module: Module): Promise<void> {
+		const index = this.modules.findIndex((m) => m.id.equals(module.id));
+		this.modules[index] = module;
+
+		return Promise.resolve();
+	}
 }
