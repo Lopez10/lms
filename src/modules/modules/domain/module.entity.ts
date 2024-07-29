@@ -20,6 +20,16 @@ export class Module extends Entity<ModuleProps> {
 		super(props, id);
 	}
 
+	setRootModule(moduleId: Id): void {
+		this.props.moduleId = moduleId;
+		this.props.isRootModule = true;
+	}
+
+	removeRootModule(): void {
+		this.props.moduleId = null;
+		this.props.isRootModule = false;
+	}
+
 	static create(props: ModuleProps, id?: Id): Module {
 		const module = new Module(props, id);
 		return module;

@@ -5,6 +5,15 @@ import { ModuleMapper } from '../application/module.mapper';
 import { Module as ModuleDb } from '@prisma/client';
 
 export class ModulePrismaRepository implements ModulePortRepository {
+	async update(module: Module): Promise<void> {
+		const moduleDb: ModuleDb = ModuleMapper.toDto(module);
+		await prisma.module.update({
+			where: {
+				id: module.id.value,
+			},
+			data: moduleDb,
+		});
+	}
 	async insert(module: Module): Promise<void> {
 		const moduleDb: ModuleDb = ModuleMapper.toDto(module);
 		await prisma.module.create({
