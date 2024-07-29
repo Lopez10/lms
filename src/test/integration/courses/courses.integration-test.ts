@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { prisma } from '../../../shared';
-import apiService, { server } from '../../..';
+import { server } from '../../..';
 import { createCourse } from './create-courses';
 
 describe('GET courses', () => {
@@ -8,17 +8,12 @@ describe('GET courses', () => {
 		await prisma.course.deleteMany();
 	});
 
-	afterAll(async () => {
-		await prisma.$disconnect();
-		server.close();
-	});
-
 	it(`
 		GIVEN no courses
 		WHEN I send a GET request to /courses
 		THEN I should receive an empty array	
 	`, async () => {
-		const response = await request(apiService).get('/courses');
+		const response = await request(server).get('/courses');
 
 		expect(response.status).toBe(200);
 		expect(response.body).toEqual([]);
@@ -31,7 +26,7 @@ describe('GET courses', () => {
 	`, async () => {
 		await createCourse({ title: 'Math' });
 
-		const response = await request(apiService).get('/courses');
+		const response = await request(server).get('/courses');
 
 		expect(response.status).toBe(200);
 		expect(response.body[0]).toHaveProperty('title', 'Math');
