@@ -4,14 +4,14 @@ import { Id } from '../../../shared/domain/id.value-object';
 interface ModuleProps {
 	title: string;
 	isRootModule: boolean;
-	moduleId: Id;
+	moduleId: Id | null;
 	courseId: Id;
 }
 
 export interface ModulePrimitives {
 	title: string;
 	isRootModule: boolean;
-	moduleId: string;
+	moduleId: string | null;
 	courseId: string;
 }
 
@@ -30,7 +30,9 @@ export class Module extends Entity<ModuleProps> {
 			{
 				title: primitives.title,
 				isRootModule: primitives.isRootModule,
-				moduleId: Id.createExisted(primitives.moduleId),
+				moduleId: primitives.moduleId
+					? Id.createExisted(primitives.moduleId)
+					: null,
 				courseId: Id.createExisted(primitives.courseId),
 			},
 			id ? Id.createExisted(id) : Id.generateId(),

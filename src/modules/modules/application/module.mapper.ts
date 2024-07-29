@@ -5,7 +5,7 @@ export interface ModuleDto {
 	id: string;
 	title: string;
 	isRootModule: boolean;
-	moduleId: string;
+	moduleId: string | null;
 	courseId: string;
 }
 
@@ -15,7 +15,9 @@ export class ModuleMapper {
 			{
 				title: moduleDto.title,
 				isRootModule: moduleDto.isRootModule,
-				moduleId: Id.createExisted(moduleDto.moduleId),
+				moduleId: moduleDto.moduleId
+					? Id.createExisted(moduleDto.moduleId)
+					: null,
 				courseId: Id.createExisted(moduleDto.courseId),
 			},
 			Id.createExisted(moduleDto.id),
@@ -26,7 +28,7 @@ export class ModuleMapper {
 			id: module.id.value,
 			title: module.props.title,
 			isRootModule: module.props.isRootModule,
-			moduleId: module.props.moduleId.value,
+			moduleId: module.props.moduleId ? module.props.moduleId.value : null,
 			courseId: module.props.courseId.value,
 		};
 	}

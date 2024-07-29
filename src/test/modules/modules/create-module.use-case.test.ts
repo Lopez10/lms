@@ -29,7 +29,7 @@ describe('create module use case', () => {
 		expect(module.id).toBeDefined();
 		expect(module.props.title).toBe(title);
 		expect(module.props.courseId.value).toBe(courseId);
-		expect(module.props.moduleId.value).toBe(moduleId);
+		expect(module.props.moduleId?.value).toBe(moduleId);
 		expect(module.props.isRootModule).toBe(isRootModule);
 	});
 });

@@ -9,9 +9,9 @@ export const getModuleById = async (req: Request, res: Response) => {
 		MODULE_DEPENDENCIES.modulePrismaRepository,
 	);
 
-	const { id } = req.params;
+	const { moduleId } = req.params;
 
-	const module = await getModuleByIdUseCase.run(id);
+	const module = await getModuleByIdUseCase.run(moduleId);
 	const responseModuleDto = ModuleMapper.toDto(module);
 
 	return sendOk(res, responseModuleDto);
