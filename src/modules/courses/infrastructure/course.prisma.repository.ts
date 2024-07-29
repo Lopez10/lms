@@ -36,6 +36,7 @@ export class CoursePrismaRepository implements CoursePortRepository {
 
 	async insert(course: Course): Promise<void> {
 		const data = {
+			id: course.id.value,
 			title: course.props.title,
 		};
 

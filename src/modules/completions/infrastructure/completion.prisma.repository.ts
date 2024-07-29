@@ -21,6 +21,7 @@ export class CompletionPrismaRepository implements CompletionPortRepository {
 	async insert(completion: Completion): Promise<void> {
 		await prisma.completion.create({
 			data: {
+				id: completion.id.value,
 				userId: completion.props.userId.value,
 				lessonId: completion.props.lessonId.value,
 			},
