@@ -11,17 +11,17 @@ datasource db {
 }
 
 model Course {
-  id     String   @id @default(uuid())
+  id     String   @id
   title  String
   Module Module[]
 }
 
 model Module {
-  id           String   @id @default(uuid())
+  id           String   @id
   title        String
   isRootModule Boolean  @default(false)
   courseId     String
-  moduleId     String
+  moduleId     String?
   submodules   Module[] @relation("Submodules")
   parentModule Module?  @relation("Submodules", fields: [moduleId], references: [id])
   Course       Course   @relation(fields: [courseId], references: [id])
@@ -31,7 +31,7 @@ model Module {
 }
 
 model Lesson {
-  id         String       @id @default(uuid())
+  id         String       @id
   title      String
   moduleId   String
   Module     Module       @relation(fields: [moduleId], references: [id])
@@ -41,7 +41,7 @@ model Lesson {
 }
 
 model Completion {
-  id       String @id @default(uuid())
+  id       String @id
   userId   String
   lessonId String
   Lesson   Lesson @relation(fields: [lessonId], references: [id])
@@ -51,7 +51,7 @@ model Completion {
 }
 
 model User {
-  id          String       @id @default(uuid())
+  id          String       @id
   email       String       @unique
   name        String
   completions Completion[]
