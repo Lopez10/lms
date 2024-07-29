@@ -40,11 +40,15 @@ test:
 integration:
 	DOCKER_BUILDKIT=1 docker-compose -f docker-compose.integration.yml up -d --build
 
+	@echo "Waiting for MySQL to be ready..."
 	@until docker-compose exec mysql_test mysqladmin ping -h localhost --silent; do \
-		echo "Waiting for MySQL to be ready..."; \
-		sleep 3; \
+		echo "MySQL is unavailable - sleeping"; \
+		sleep 1; \
 	done
-
+	@sleep 5
+	@echo "MySQL is up - continuing..."
+	@echo "Running integration tests..."
 	npm run test:integration
 
+	@echo "Stopping Docker containers..."
 	docker-compose -f docker-compose.integration.yml down
