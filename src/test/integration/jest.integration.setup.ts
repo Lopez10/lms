@@ -12,10 +12,10 @@ beforeAll(async () => {
 	await cleanDatabase();
 });
 
-async function cleanDatabase() {
+export async function cleanDatabase() {
+	await prisma.completion.deleteMany();
 	await prisma.lesson.deleteMany();
+	await prisma.user.deleteMany();
 	await prisma.module.deleteMany();
 	await prisma.course.deleteMany();
-	await prisma.user.deleteMany();
-	await prisma.completion.deleteMany();
 }
