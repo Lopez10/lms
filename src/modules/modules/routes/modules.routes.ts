@@ -7,6 +7,6 @@ const router = Router();
 
 router.route('/').get(getModules).post(createModule);
 
-router.route('/:moduleId').get(getModuleById);
+router.route('/moduleId/:moduleId').get(getModuleById);
 
 export default router;
