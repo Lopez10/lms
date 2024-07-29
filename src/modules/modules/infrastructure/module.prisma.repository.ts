@@ -25,7 +25,9 @@ export class ModulePrismaRepository implements ModulePortRepository {
 
 		return ModuleMapper.toDomain(moduleDb);
 	}
-	getAll(): Promise<Module[]> {
-		throw new Error('Method not implemented.');
+	async getAll(): Promise<Module[]> {
+		const modulesDb = await prisma.module.findMany();
+
+		return modulesDb.map(ModuleMapper.toDomain);
 	}
 }

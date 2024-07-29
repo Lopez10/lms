@@ -17,7 +17,7 @@ export function createCourseModuleExample(
 	const lessonExample = LessonMother.create({
 		id: 'lessonId123',
 		moduleId: 'moduleId123',
-		name: 'lesson name',
+		title: 'lesson name',
 	});
 
 	completionRepository.insertModule(moduleExample);

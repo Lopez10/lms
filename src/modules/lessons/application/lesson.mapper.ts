@@ -3,7 +3,7 @@ import { Lesson } from '../domain/lesson.entity';
 
 export interface LessonDto {
 	id: string;
-	name: string;
+	title: string;
 	moduleId: string;
 }
 
@@ -11,7 +11,7 @@ export class LessonMapper {
 	static toDto(lesson: Lesson) {
 		return {
 			id: lesson.id,
-			name: lesson.props.title,
+			title: lesson.props.title,
 			moduleId: lesson.props.moduleId,
 		};
 	}
@@ -19,7 +19,7 @@ export class LessonMapper {
 	static toDomain(lesson: LessonDto): Lesson {
 		return Lesson.create(
 			{
-				title: lesson.name,
+				title: lesson.title,
 				moduleId: Id.createExisted(lesson.moduleId),
 			},
 			Id.createExisted(lesson.id),

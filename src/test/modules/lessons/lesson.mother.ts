@@ -8,7 +8,7 @@ export class LessonMother {
 	static create(params: Partial<LessonDto>): Lesson {
 		const lessonDto: LessonDto = {
 			id: 'lessonId123',
-			name: 'lesson-name',
+			title: 'lesson-name',
 			moduleId: 'moduleId123',
 			...params,
 		};

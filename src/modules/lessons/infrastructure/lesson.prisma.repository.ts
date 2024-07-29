@@ -1,5 +1,6 @@
 import { Id } from '../../../shared';
 import { prisma } from '../../../shared';
+import { LessonDto, LessonMapper } from '../application/lesson.mapper';
 import { Lesson } from '../domain/lesson.entity';
 import { LessonPortRepository } from '../domain/lesson.port.repository';
 
@@ -12,8 +13,10 @@ export class LessonPrismaRepository implements LessonPortRepository {
 		throw new Error('Method not implemented.');
 	}
 
-	getAll(): Promise<Lesson[]> {
-		throw new Error('Method not implemented.');
+	async getAll(): Promise<Lesson[]> {
+		const lessons: LessonDto[] = await prisma.lesson.findMany();
+
+		return lessons.map(LessonMapper.toDomain);
 	}
 
 	async countTotalLessonByCourseId(courseId: Id): Promise<number> {
