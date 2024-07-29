@@ -10,9 +10,9 @@ export interface LessonDto {
 export class LessonMapper {
 	static toDto(lesson: Lesson) {
 		return {
-			id: lesson.id,
+			id: lesson.id.value,
 			title: lesson.props.title,
-			moduleId: lesson.props.moduleId,
+			moduleId: lesson.props.moduleId.value,
 		};
 	}
 
