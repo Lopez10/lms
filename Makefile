@@ -36,6 +36,15 @@ run:
 test:
 	$(EXEC) npm run test
 
-.PHONY: debug
-debug:
-	$(EXEC) npm run debug
+.PHONY: integration
+integration:
+	DOCKER_BUILDKIT=1 docker-compose -f docker-compose.integration.yml up -d --build
+
+	@until docker-compose exec mysql_test mysqladmin ping -h localhost --silent; do \
+		echo "Waiting for MySQL to be ready..."; \
+		sleep 1; \
+	done
+
+	npm run test:integration
+
+	docker-compose -f docker-compose.integration.yml down
