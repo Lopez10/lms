@@ -1,5 +1,5 @@
-import { CreateUserUseCase } from '../../../modules/users/application/create-user.use-case';
-import { UserInMemoryRepository } from '../../../modules/users/infrastructure/user.in-memory.repository';
+import { CreateUserUseCase } from '../../../../modules/users/application/create-user.use-case';
+import { UserInMemoryRepository } from '../infrastructure/user.in-memory.repository';
 
 describe('create user use case', () => {
 	it(`

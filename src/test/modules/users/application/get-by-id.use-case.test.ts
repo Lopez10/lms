@@ -1,7 +1,7 @@
-import { GetUserByIdUseCase } from '../../../modules/users/application/get-user-by-id.use-case';
-import { UserInMemoryRepository } from '../../../modules/users/infrastructure/user.in-memory.repository';
-import { NotFoundException } from '../../../shared/application/exceptions';
-import { UserMother } from './user.mother';
+import { GetUserByIdUseCase } from '../../../../modules/users/application/get-user-by-id.use-case';
+import { NotFoundException } from '../../../../shared/application/exceptions';
+import { UserInMemoryRepository } from '../infrastructure/user.in-memory.repository';
+import { UserMother } from '../user.mother';
 
 describe('get user by id use case', () => {
 	it(`

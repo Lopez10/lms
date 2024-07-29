@@ -1,6 +1,6 @@
-import { Id } from '../../../shared';
-import { UserPortRepository } from '../domain/user.port.repository';
-import { User } from '../domain/user.entity';
+import { User } from '../../../../modules/users/domain/user.entity';
+import { UserPortRepository } from '../../../../modules/users/domain/user.port.repository';
+import { Id } from '../../../../shared';
 
 export class UserInMemoryRepository implements UserPortRepository {
 	private readonly users: User[] = [];
