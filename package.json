@@ -8,6 +8,7 @@
     "dev": "nodemon --exec ts-node --files src/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:e2e": "jest --config ./tests/integration/jest-e2e.json --runInBand --watch",
     "start:dev": "node dist/index.js"
   },
   "author": "David Dionis (@daviddionis)",
