@@ -1,7 +1,9 @@
 import request from 'supertest';
-import apiService, { server } from '../../src/index';
+import { prisma } from '../../shared';
+import apiService, { server } from '../..';
 
-afterAll(() => {
+afterAll(async () => {
+	await prisma.$disconnect();
 	server.close();
 });
 
