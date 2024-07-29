@@ -37,6 +37,10 @@ export class CourseService {
 			const completedLessons = await this.getCompletedLessonsCount(courseId);
 			const totalLessons = await this.getTotalLessonsCount(courseId);
 
+			if (totalLessons === 0 || completedLessons === 0) {
+				return 0;
+			}
+
 			const progress = (completedLessons / totalLessons) * 100;
 			return progress;
 		} catch (error) {
