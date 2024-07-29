@@ -5,12 +5,25 @@ import { Lesson } from '../domain/lesson.entity';
 import { LessonPortRepository } from '../domain/lesson.port.repository';
 
 export class LessonPrismaRepository implements LessonPortRepository {
-	insert(lesson: Lesson): Promise<void> {
-		throw new Error('Method not implemented.');
+	async insert(lesson: Lesson): Promise<void> {
+		const lessonDto = LessonMapper.toDto(lesson);
+		await prisma.lesson.create({
+			data: lessonDto,
+		});
 	}
 
-	getById(id: Id): Promise<Lesson | null> {
-		throw new Error('Method not implemented.');
+	async getById(id: Id): Promise<Lesson | null> {
+		const lesson: LessonDto | null = await prisma.lesson.findUnique({
+			where: {
+				id: id.value,
+			},
+		});
+
+		if (!lesson) {
+			return null;
+		}
+
+		return LessonMapper.toDomain(lesson);
 	}
 
 	async getAll(): Promise<Lesson[]> {
