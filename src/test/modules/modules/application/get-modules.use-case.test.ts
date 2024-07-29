@@ -1,6 +1,6 @@
-import { GetModulesUseCase } from '../../../modules/modules/application/get-modules.use-case';
-import { ModuleInMemoryRepository } from '../../../modules/modules/infrastructure/module.in-memory.repository';
-import { ModuleMother } from './module.mother';
+import { GetModulesUseCase } from '../../../../modules/modules/application/get-modules.use-case';
+import { ModuleInMemoryRepository } from '../infrastructure/module.in-memory.repository';
+import { ModuleMother } from '../module.mother';
 
 describe('get modules use case', () => {
 	it(`

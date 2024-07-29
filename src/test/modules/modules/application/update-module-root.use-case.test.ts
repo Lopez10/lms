@@ -1,9 +1,9 @@
 import {
-	UpdateModuleRootDto,
 	UpdateModuleRootUseCase,
-} from '../../../modules/modules/application/update-module-root.use-case';
-import { ModuleInMemoryRepository } from '../../../modules/modules/infrastructure/module.in-memory.repository';
-import { ModuleMother } from './module.mother';
+	UpdateModuleRootDto,
+} from '../../../../modules/modules/application/update-module-root.use-case';
+import { ModuleInMemoryRepository } from '../infrastructure/module.in-memory.repository';
+import { ModuleMother } from '../module.mother';
 
 describe('update module root use case test', () => {
 	it(`

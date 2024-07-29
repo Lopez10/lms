@@ -1,7 +1,7 @@
-import { GetModuleByIdUseCase } from '../../../modules/modules/application/get-module-by-id.use-case';
-import { ModuleInMemoryRepository } from '../../../modules/modules/infrastructure/module.in-memory.repository';
-import { NotFoundException } from '../../../shared/application/exceptions';
-import { ModuleMother } from './module.mother';
+import { GetModuleByIdUseCase } from '../../../../modules/modules/application/get-module-by-id.use-case';
+import { ModuleInMemoryRepository } from '../infrastructure/module.in-memory.repository';
+import { NotFoundException } from '../../../../shared/application/exceptions';
+import { ModuleMother } from '../module.mother';
 
 describe('get module by id use case', () => {
 	it(`

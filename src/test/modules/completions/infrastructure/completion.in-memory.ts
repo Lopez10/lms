@@ -1,8 +1,8 @@
-import { Id } from '../../../shared';
-import { Lesson } from '../../lessons/domain/lesson.entity';
-import { Module } from '../../modules/domain/module.entity';
-import { Completion } from '../domain/completion.entity';
-import { CompletionPortRepository } from '../domain/completion.port.repository';
+import { Completion } from '../../../../modules/completions/domain/completion.entity';
+import { CompletionPortRepository } from '../../../../modules/completions/domain/completion.port.repository';
+import { Lesson } from '../../../../modules/lessons/domain/lesson.entity';
+import { Module } from '../../../../modules/modules/domain/module.entity';
+import { Id } from '../../../../shared';
 
 export class CompletionInMemoryRepository implements CompletionPortRepository {
 	private readonly completions: Completion[] = [];

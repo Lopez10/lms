@@ -1,5 +1,5 @@
-import { CreateModuleUseCase } from '../../../modules/modules/application/create-module.use-case';
-import { ModuleInMemoryRepository } from '../../../modules/modules/infrastructure/module.in-memory.repository';
+import { CreateModuleUseCase } from '../../../../modules/modules/application/create-module.use-case';
+import { ModuleInMemoryRepository } from '../infrastructure/module.in-memory.repository';
 
 describe('create module use case', () => {
 	it(`

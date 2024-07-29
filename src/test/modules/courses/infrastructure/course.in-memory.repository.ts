@@ -1,6 +1,6 @@
-import { Id } from '../../../shared';
-import { Course } from '../domain/course.entity';
-import { CoursePortRepository } from '../domain/course.port.repository';
+import { Course } from '../../../../modules/courses/domain/course.entity';
+import { CoursePortRepository } from '../../../../modules/courses/domain/course.port.repository';
+import { Id } from '../../../../shared';
 
 export class CourseInMemoryRepository implements CoursePortRepository {
 	private readonly courses: Course[] = [];

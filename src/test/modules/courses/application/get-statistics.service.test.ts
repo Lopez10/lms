@@ -1,10 +1,10 @@
-import { CompletionInMemoryRepository } from '../../../../modules/completions/infrastructure/completion.in-memory';
 import {
 	GetStatisticsService,
 	StatisticsDto,
 } from '../../../../modules/courses/application/get-statistics.service';
 import { CourseService } from '../../../../modules/courses/domain/course.service';
 import { Id } from '../../../../shared';
+import { CompletionInMemoryRepository } from '../../completions/infrastructure/completion.in-memory';
 import { LessonInMemoryRepository } from '../../lessons/infrastructure/lesson.in-memory.repository';
 import { createCourseModuleExample } from '../create-course-module-example';
 

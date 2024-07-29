@@ -1,9 +1,9 @@
-import { CompletionInMemoryRepository } from '../../../../modules/completions/infrastructure/completion.in-memory';
 import { CourseService } from '../../../../modules/courses/domain/course.service';
 import { LessonInMemoryRepository } from '../../lessons/infrastructure/lesson.in-memory.repository';
 import { Id } from '../../../../shared';
 import { CompletionMother } from '../../completions/completion.mother';
 import { createCourseModuleExample } from '../create-course-module-example';
+import { CompletionInMemoryRepository } from '../../completions/infrastructure/completion.in-memory';
 
 describe('course service', () => {
 	it(`

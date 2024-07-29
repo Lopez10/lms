@@ -1,4 +1,4 @@
-import { CompletionInMemoryRepository } from '../../../modules/completions/infrastructure/completion.in-memory';
+import { CompletionInMemoryRepository } from '../completions/infrastructure/completion.in-memory';
 import { LessonInMemoryRepository } from '../lessons/infrastructure/lesson.in-memory.repository';
 import { LessonMother } from '../lessons/lesson.mother';
 import { ModuleMother } from '../modules/module.mother';

@@ -1,7 +1,7 @@
-import { CompletionInMemoryRepository } from '../../../../modules/completions/infrastructure/completion.in-memory';
 import { LessonCompleteService } from '../../../../modules/lessons/domain/lesson-complete.service';
 import { Id } from '../../../../shared';
 import { CompletionMother } from '../../completions/completion.mother';
+import { CompletionInMemoryRepository } from '../../completions/infrastructure/completion.in-memory';
 import { ModuleMother } from '../../modules/module.mother';
 import { LessonMother } from '../lesson.mother';
 

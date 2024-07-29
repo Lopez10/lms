@@ -1,5 +1,5 @@
 import { CreateCompletationUseCase } from '../../../modules/completions/application/create-completation.use-case';
-import { CompletionInMemoryRepository } from '../../../modules/completions/infrastructure/completion.in-memory';
+import { CompletionInMemoryRepository } from './infrastructure/completion.in-memory';
 
 describe('create completion use case', () => {
 	it(`
