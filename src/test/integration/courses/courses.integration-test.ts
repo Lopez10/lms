@@ -1,6 +1,7 @@
 import request from 'supertest';
-import { prisma } from '../../shared';
-import apiService, { server } from '../..';
+import { prisma } from '../../../shared';
+import apiService, { server } from '../../..';
+import { createCourse } from './create-courses';
 
 describe('GET courses', () => {
 	beforeEach(async () => {
@@ -36,7 +37,3 @@ describe('GET courses', () => {
 		expect(response.body[0]).toHaveProperty('title', 'Math');
 	});
 });
-
-function createCourse(course: { title: string }) {
-	return request(apiService).post('/courses').send(course);
-}
