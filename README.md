@@ -30,8 +30,13 @@ Integration tests are conducted against the API endpoints, using a test database
 
 ## Execution Commands
 
-### Starting the Project
+### Installing Dependencies
+Before running the application, it is necessary to install the required dependencies. This can be done by executing the following command within the project directory:
+```bash
+npm install
+```
 
+### Starting the Project
 To start all services necessary for the system to operate, including databases and application servers, use the following command:
 
 ```bash

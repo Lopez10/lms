@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "5e16c016-a75e-41e2-a077-3955fe85d5b0",
+		"name": "LMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3532019"
+	},
+	"item": [
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "GET courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3124/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET course by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3124/courses/courseId/U5eq4PAZlFc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"courses",
+								"courseId",
+								"U5eq4PAZlFc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Curso de prueba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3124/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module",
+			"item": [
+				{
+					"name": "GET modules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3124/modules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"modules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE module",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Modulo de ejemplo\",\n    \"isRootModule\": false,\n    \"moduleId\": \"G2AZl3pdLtl\",\n    \"courseId\": \"U5eq4PAZlFc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3124/modules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"modules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET module by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3124/modules/moduleId/PNzwKWK1HQy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"modules",
+								"moduleId",
+								"PNzwKWK1HQy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE module root",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"moduleId\": \"PNzwKWK1HQy\",\n    \"moduleParentId\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3124/modules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"modules"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lesson",
+			"item": [
+				{
+					"name": "GET lessons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3124/lessons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"lessons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET lesson by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3124/lessons/lessonId/llQlK3zzd7A",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"lessons",
+								"lessonId",
+								"llQlK3zzd7A"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE lesson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"moduleId\":\"PNzwKWK1HQy\",\n    \"title\":\"Lesson de prueba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3124/lessons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"lessons"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "completion",
+			"item": [
+				{
+					"name": "CREATE completion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"xwGcAILiQCX\",\n    \"lessonId\":\"oLAchIK2aAr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3124/completions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "CREATE user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"email\": \"prueba@test.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3124/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3124/users/userId/KpT07T386a4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3124",
+							"path": [
+								"users",
+								"userId",
+								"KpT07T386a4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
