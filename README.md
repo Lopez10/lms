@@ -32,8 +32,16 @@ Integration tests are conducted against the API endpoints, using a test database
 
 ### Installing Dependencies
 Before running the application, it is necessary to install the required dependencies. This can be done by executing the following command within the project directory:
+
 ```bash
-npm install
+pnpm install
+```
+
+### Generate Prisma Client
+Generate the Prisma client to ensure that the Prisma schema is correctly implemented in your application. Run the following command:
+
+```bash
+npx prisma generate
 ```
 
 ### Starting the Project
@@ -50,7 +58,7 @@ To run unit tests, which include tests of the application logic without interact
 ```bash
 make test
 # or alternatively
-npm run test
+pnpm test
 ```
 
 ### Running Integration Tests
