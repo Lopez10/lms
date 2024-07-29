@@ -9,9 +9,9 @@ export const getCourseById = async (req: Request, res: Response) => {
 		COURSES_DEPENDENCIES.coursePrismaRepository,
 	);
 
-	const { id } = req.params;
+	const { courseId } = req.params;
 
-	const course = await getCourseByIdUseCase.run(id);
+	const course = await getCourseByIdUseCase.run(courseId);
 	const statistics = await COURSES_DEPENDENCIES.getStatisticsService.run(
 		course.id,
 	);

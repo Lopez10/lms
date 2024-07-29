@@ -11,7 +11,14 @@ export const getLessons = async (req: Request, res: Response) => {
 
 	const lessons = await getLessonsUseCase.run();
 
-	const responseLessonsDto = lessons.map(LessonMapper.toDto);
+	const lessonsCompleted = await Promise.all(
+		lessons.map(async (lesson) => {
+			const isLessonCompleted =
+				await LESSON_DEPENDENCIES.getLessonCompleteService.run(lesson.id.value);
 
-	return sendOk(res, responseLessonsDto);
+			return LessonMapper.toDtoWithCompletion(lesson, isLessonCompleted);
+		}),
+	);
+
+	return sendOk(res, lessonsCompleted);
 };
