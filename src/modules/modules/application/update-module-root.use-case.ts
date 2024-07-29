@@ -20,7 +20,7 @@ export class UpdateModuleRootUseCase {
 		}
 
 		if (input.moduleParentId === null) {
-			module.removeRootModule();
+			module.makeRootModule();
 			await this.moduleRepository.update(module);
 			return module;
 		}
@@ -32,7 +32,7 @@ export class UpdateModuleRootUseCase {
 			throw new NotFoundException('Parent module not found');
 		}
 
-		module.setRootModule(parentModule.id);
+		module.makeChildModule(parentModule.id);
 		await this.moduleRepository.update(module);
 		return module;
 	}
