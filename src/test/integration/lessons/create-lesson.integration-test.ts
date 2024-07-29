@@ -1,7 +1,6 @@
 import request from 'supertest';
 import { prisma } from '../../../shared';
 import { server } from '../../..';
-import { ModulePrimitives } from '../../../modules/modules/domain/module.entity';
 import { createCourse } from '../courses/create-courses';
 import { createModule } from '../modules/create-module';
 
@@ -30,7 +29,6 @@ describe('CREATE lesson', () => {
         THEN I should receive the lesson
     `, async () => {
 		const course = await createCourse({ title: 'Math' });
-		console.log(course.body.data.id);
 		const module = await createModule({
 			title: 'Module 1',
 			isRootModule: true,
