@@ -4,10 +4,12 @@
   "description": "A Fourvenues Technical Interview",
   "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "dev": "nodemon --exec ts-node --files src/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:e2e": "jest --config ./tests/integration/jest-e2e.json --runInBand --watch"
+    "test:e2e": "jest --config ./tests/integration/jest-e2e.json --runInBand --watch",
+    "start:dev": "node dist/index.js"
   },
   "author": "David Dionis (@daviddionis)",
   "license": "ISC",
@@ -19,6 +21,7 @@
     "ts-jest": "^29.1.2"
   },
   "devDependencies": {
+    "typescript": "5.5.4",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
